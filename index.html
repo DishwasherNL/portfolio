@@ -1,10 +1,653 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Hello World</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Use Cases — AWUB</title>
+  <style>
+
+    /* ── Reset ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Scrollbars ─────────────────────────────────── */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #d8d8d8 transparent;
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #d8d8d8; border-radius: 2px; }
+    ::-webkit-scrollbar-thumb:hover { background: #bbb; }
+
+    /* ── Shell ──────────────────────────────────────── */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      color: #111;
+      background: #fff;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Header ─────────────────────────────────────── */
+    header {
+      height: 52px;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 28px;
+      border-bottom: 2px solid #111;
+    }
+
+    header h1 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    header .name {
+      font-size: 13px;
+      color: #666;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── Layout ─────────────────────────────────────── */
+    .main {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+    }
+
+    /* ── Sidebar ─────────────────────────────────────── */
+    .sidebar {
+      width: 252px;
+      flex-shrink: 0;
+      border-right: 1px solid #e8e8e8;
+      background: #f7f7f7;
+      overflow-y: auto;
+      padding: 24px 0 40px;
+    }
+
+    .sidebar ul { list-style: none; }
+
+    .sidebar-item {
+      display: block;
+      padding: 12px 22px;
+      cursor: pointer;
+      border-left: 2px solid transparent;
+      transition: background 0.12s ease;
+      user-select: none;
+    }
+
+    .sidebar-item:hover {
+      background: #efefef;
+    }
+
+    .sidebar-item.active {
+      border-left-color: #111;
+      background: #fff;
+    }
+
+    .item-title {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: #111;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 4px;
+    }
+
+    .sidebar-item:not(.active) .item-title {
+      color: #555;
+    }
+
+    .item-meta {
+      display: flex;
+      gap: 8px;
+      font-size: 11px;
+      color: #666;
+    }
+
+    /* ── Content ─────────────────────────────────────── */
+    .content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 52px 64px 72px;
+    }
+
+    /* All panels hidden; .active shown */
+    .case-panel {
+      display: none;
+      max-width: 660px;
+    }
+
+    .case-panel.active {
+      display: block;
+    }
+
+    /* Title */
+    .case-panel h2 {
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    /* Meta row with · separator */
+    .case-meta {
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 32px;
+    }
+
+    .case-meta span + span::before {
+      content: '·';
+      margin: 0 10px;
+      color: #ddd;
+    }
+
+    /* Image */
+    .case-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 32px;
+      overflow: hidden;
+    }
+
+    .case-image span {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #737373;
+    }
+
+    .case-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── Slideshow ───────────────────────────────────── */
+    .case-image { position: relative; }
+    .slide { display: none; width: 100%; height: 100%; align-items: center; justify-content: center; }
+    .slide.active { display: flex; }
+    .slide-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.85);
+      border: none;
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .slide-btn.prev { left: 8px; }
+    .slide-btn.next { right: 8px; }
+
+    /* ── Section label ───────────────────────────────── */
+    .section-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    /* ── About ───────────────────────────────────────── */
+    .case-intro p {
+      font-size: 15px;
+      color: #222;
+      line-height: 1.75;
+    }
+
+    /* ── Divider ─────────────────────────────────────── */
+    .case-divider {
+      border: none;
+      border-top: 1px solid #ececec;
+      margin: 28px 0;
+    }
+
+    /* ── Role ────────────────────────────────────────── */
+    .case-role {
+      padding-left: 16px;
+      border-left: 2px solid #e0e0e0;
+    }
+
+    .case-role p {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.7;
+    }
+
+    /* ── STAR ────────────────────────────────────────── */
+    .star-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .star-row:last-child { margin-bottom: 0; }
+
+    .star-key {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #666;
+      width: 12px;
+      flex-shrink: 0;
+      padding-top: 3px;
+    }
+
+    .star-val {
+      flex: 1;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.75;
+    }
+
+    /* Wraps R text + KPI tiles so they stack in one column */
+    .star-val-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* ── KPI tiles ───────────────────────────────────── */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 8px;
+    }
+
+    .kpi-tile {
+      border: 1px solid #e8e8e8;
+      padding: 14px 16px;
+    }
+
+    .kpi-value {
+      display: block;
+      font-size: 20px;
+      font-weight: 500;
+      color: #111;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+      margin-bottom: 5px;
+      line-height: 1.1;
+    }
+
+    .kpi-label {
+      display: block;
+      font-size: 11px;
+      color: #666;
+      line-height: 1.45;
+    }
+
+    /* ── Stack ───────────────────────────────────────── */
+    .case-stack {
+      font-size: 12px;
+      color: #666;
+      letter-spacing: 0.02em;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #ececec;
+    }
+
+    /* ── Footer ──────────────────────────────────────── */
+    .content-footer {
+      margin-top: 64px;
+      font-size: 12px;
+      color: #737373;
+    }
+
+    /* ── Mobile ──────────────────────────────────────── */
+    @media (max-width: 680px) {
+      body { height: auto; overflow: auto; }
+
+      .main { flex-direction: column; overflow: visible; }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e8e8e8;
+        padding: 12px 0;
+      }
+
+      .content { padding: 32px 20px 48px; }
+
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+  </style>
 </head>
 <body>
+
+  <header>
+    <h1>Use Cases</h1>
+    <span class="name">AWUB</span>
+  </header>
+
+  <div class="main">
+
+    <!-- ══════════════════════════════════════════
+         SIDEBAR
+         data-case must match the article id below
+    ══════════════════════════════════════════ -->
+    <nav class="sidebar">
+      <ul>
+
+        <li>
+          <div class="sidebar-item active" data-case="hmi" onclick="select('hmi')">
+            <span class="item-title">Control HMI</span>
+            <span class="item-meta">
+              <span>Industrial UX</span>
+              <span>2024</span>
+            </span>
+          </div>
+        </li>
+
+        <li>
+          <div class="sidebar-item" data-case="cep" onclick="select('cep')">
+            <span class="item-title">CEP Tool</span>
+            <span class="item-meta">
+              <span>Internal Tooling</span>
+              <span>2025</span>
+            </span>
+          </div>
+        </li>
+
+        <li>
+          <div class="sidebar-item" data-case="gaslicht" onclick="select('gaslicht')">
+            <span class="item-title">Gaslicht.com</span>
+            <span class="item-meta">
+              <span>B2C Web</span>
+              <span>2021</span>
+            </span>
+          </div>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- ══════════════════════════════════════════
+         CONTENT
+         id must match data-case in the sidebar
+    ══════════════════════════════════════════ -->
+    <main class="content" id="content">
+
+      <!-- ─────────────────────────────────────
+           CASE: Control HMI
+      ───────────────────────────────────── -->
+      <article class="case-panel active" id="hmi">
+
+        <h2>Control HMI — Hydrogen Fueling Station</h2>
+        <div class="case-meta">
+          <span>Industrial UX</span>
+          <span>2024</span>
+          <span>Resato Hydrogen Technology</span>
+        </div>
+
+        <!-- Put <img> tags inside each .slide div to swap in real images -->
+        <div class="case-image">
+          <div class="slide active"><span>Image 1 placeholder</span></div>
+          <div class="slide"><span>Image 2 placeholder</span></div>
+          <div class="slide"><span>Image 3 placeholder</span></div>
+          <button class="slide-btn prev" onclick="slideNav(this,-1)">&#8249;</button>
+          <button class="slide-btn next" onclick="slideNav(this,1)">&#8250;</button>
+        </div>
+
+        <div class="case-intro">
+          <p class="section-label">About this project</p>
+          <p>A real-time operator interface for hydrogen fueling stations, built in Ignition Perspective. It covers filling bay control, P&ID visualization, and a PackML-based state machine — the primary interface between operator and station hardware.</p>
+        </div>
+
+        <hr class="case-divider">
+
+        <div class="case-role">
+          <p class="section-label">My role</p>
+          <p>Lead designer and front-end developer. Responsible for the full HMI architecture, component design, and Ignition Perspective implementation — from tag structure and UDT definitions to P&ID views and state machine visualization.</p>
+        </div>
+
+        <hr class="case-divider">
+
+        <div class="star-row">
+          <span class="star-key">S</span>
+          <p class="star-val">Resato's new hydrogen fueling stations had no standardized operator interface. Engineers relied on PLC diagnostics and separate documentation to monitor station states.</p>
+        </div>
+
+        <div class="star-row">
+          <span class="star-key">T</span>
+          <p class="star-val">Design and build a complete HMI MVP covering filling bays, P&ID views, and PackML state machine visualization — ready for live deployment before September 2026.</p>
+        </div>
+
+        <div class="star-row">
+          <span class="star-key">A</span>
+          <p class="star-val">Designed the component architecture using UDTs, built P&ID symbols to ISO 10628-2 standards, defined the style class system, and implemented the full state machine view in Ignition Perspective.</p>
+        </div>
+
+        <div class="star-row">
+          <span class="star-key">R</span>
+          <div class="star-val-wrap">
+            <p class="star-val">MVP delivered on schedule. Operators can monitor and control all station states from a single interface, cutting fault identification time significantly.</p>
+            <div class="kpi-grid">
+              <div class="kpi-tile">
+                <span class="kpi-value">&lt; 1 min</span>
+                <span class="kpi-label">Fault identification (was 5–10 min)</span>
+              </div>
+              <div class="kpi-tile">
+                <span class="kpi-value">On time</span>
+                <span class="kpi-label">MVP delivered before Sept 2026</span>
+              </div>
+              <div class="kpi-tile">
+                <span class="kpi-value">ISO 10628-2</span>
+                <span class="kpi-label">P&ID symbol compliance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="case-stack">Ignition Perspective · P&ID · UDT · ISO 10628-2 · SVG components</p>
+
+      </article>
+
+      <!-- ─────────────────────────────────────
+           CASE: CEP Tool
+      ───────────────────────────────────── -->
+      <article class="case-panel" id="cep">
+
+        <h2>CEP Tool — Commissioning Engineer Platform</h2>
+        <div class="case-meta">
+          <span>Internal Tooling</span>
+          <span>2025–2026</span>
+          <span>Resato Hydrogen Technology</span>
+        </div>
+
+        <!-- Put <img> tags inside each .slide div to swap in real images -->
+        <div class="case-image">
+          <div class="slide active"><span>Image 1 placeholder</span></div>
+          <div class="slide"><span>Image 2 placeholder</span></div>
+          <div class="slide"><span>Image 3 placeholder</span></div>
+          <button class="slide-btn prev" onclick="slideNav(this,-1)">&#8249;</button>
+          <button class="slide-btn next" onclick="slideNav(this,1)">&#8250;</button>
+        </div>
+
+        <div class="case-intro">
+          <p class="section-label">About this project</p>
+          <p>An internal web platform that gives commissioning engineers a single environment to configure, validate, and document hydrogen station setups — deployable to both staging and production via Docker. Currently entering beta field testing.</p>
+        </div>
+
+        <hr class="case-divider">
+
+        <div class="case-role">
+          <p class="section-label">My role</p>
+          <p>Front-end developer. Responsible for the full UI, environment-aware deployment setup, and API integration. Collaborated with SBEC (backend) and EBRO (test automation).</p>
+        </div>
+
+        <hr class="case-divider">
+
+        <div class="star-row">
+          <span class="star-key">S</span>
+          <p class="star-val">Engineers spent 6–8 hours of direct, uninterrupted time per commissioning report using spreadsheets and manual checklists to configure and validate hydrogen stations on-site — an average of 7 hours, or roughly €350 in labor cost per report at a fully loaded rate of €50/hour.</p>
+        </div>
+
+        <div class="star-row">
+          <span class="star-key">T</span>
+          <p class="star-val">Build the front-end for a unified commissioning platform that works across staging and production environments and supports engineers in the field.</p>
+        </div>
+
+        <div class="star-row">
+          <span class="star-key">A</span>
+          <p class="star-val">Documented the functionality in a functional specification, wrote a test plan to validate the tool methodically, and built the UI in vanilla HTML/CSS/JS with Docker deployment for both environments. The first test round uncovered a technical issue, which was diagnosed and fixed, then successfully re-verified in a second round with minor advice points.</p>
+        </div>
+
+        <div class="star-row">
+          <span class="star-key">R</span>
+          <div class="star-val-wrap">
+            <p class="star-val">Two independent report-generation tests (7 min 20 sec and 9 min 40 sec, averaging 8.5 minutes) show a 98% reduction in direct time per report — down from 7 hours to 8.5 minutes, or from €350 to roughly €7 in labor cost. The tool is now moving into beta field testing.</p>
+            <div class="kpi-grid">
+              <div class="kpi-tile">
+                <span class="kpi-value">-98%</span>
+                <span class="kpi-label">Direct time per report (7h → 8.5 min)</span>
+              </div>
+              <div class="kpi-tile">
+                <span class="kpi-value">€350 → €7</span>
+                <span class="kpi-label">Labor cost per report</span>
+              </div>
+              <div class="kpi-tile">
+                <span class="kpi-value">Beta</span>
+                <span class="kpi-label">Now field-testing with engineers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="star-row">
+          <span class="star-key">Refl.</span>
+          <p class="star-val">The failed first test round underscored how important early, methodical testing is for catching technical limitations before a tool goes live. Development itself was challenging, as both SBEC and I had to learn a lot of new things along the way. A clear appetite for this solution has emerged across the organization, given the scale of the time and cost savings. A next step is measuring the indirect time (waiting on others), which ran up to 40 hours per report in the old process and may hold the largest remaining savings potential — still to be measured.</p>
+        </div>
+
+        <p class="case-stack">HTML · CSS · JavaScript · Docker · REST API</p>
+
+      </article>
+
+      <!-- ─────────────────────────────────────
+           CASE: Gaslicht.com
+      ───────────────────────────────────── -->
+      <article class="case-panel" id="gaslicht">
+
+        <h2>Gaslicht.com — Energy Comparison Platform</h2>
+        <div class="case-meta">
+          <span>B2C Web</span>
+          <span>2021</span>
+          <span>Bencom Group</span>
+        </div>
+
+        <!-- Put <img> tags inside each .slide div to swap in real images -->
+        <div class="case-image">
+          <div class="slide active"><span>Image 1 placeholder</span></div>
+          <div class="slide"><span>Image 2 placeholder</span></div>
+          <div class="slide"><span>Image 3 placeholder</span></div>
+          <button class="slide-btn prev" onclick="slideNav(this,-1)">&#8249;</button>
+          <button class="slide-btn next" onclick="slideNav(this,1)">&#8250;</button>
+        </div>
+
+        <div class="case-intro">
+          <p class="section-label">About this project</p>
+          <p>One of the Netherlands' largest energy comparison platforms, serving millions of users annually. The platform helps consumers compare and switch energy providers — a high-traffic, conversion-critical product.</p>
+        </div>
+
+        <hr class="case-divider">
+
+        <div class="case-role">
+          <p class="section-label">My role</p>
+          <p>UX designer and front-end developer within a multidisciplinary team. Responsible for interaction design, front-end implementation, and CRO across key conversion flows.</p>
+        </div>
+
+        <hr class="case-divider">
+
+        <div class="star-row">
+          <span class="star-key">S</span>
+          <p class="star-val">Gaslicht.com operated in a competitive B2C energy market where UX quality directly drove conversion and customer trust.</p>
+        </div>
+
+        <div class="star-row">
+          <span class="star-key">T</span>
+          <p class="star-val">Continuously improve UX and conversion performance across high-traffic comparison and sign-up flows.</p>
+        </div>
+
+        <div class="star-row">
+          <span class="star-key">A</span>
+          <p class="star-val">Redesigned key user flows, ran A/B tests, improved accessibility, and shipped front-end across multiple product updates in close collaboration with product and marketing.</p>
+        </div>
+
+        <div class="star-row">
+          <span class="star-key">R</span>
+          <div class="star-val-wrap">
+            <p class="star-val">Platform won "Website van het Jaar" multiple times during this period, ranking it among the best-rated consumer websites in the Netherlands.</p>
+            <div class="kpi-grid">
+              <div class="kpi-tile">
+                <span class="kpi-value">3×</span>
+                <span class="kpi-label">Website van het Jaar during tenure</span>
+              </div>
+              <div class="kpi-tile">
+                <span class="kpi-value">#1</span>
+                <span class="kpi-label">Energy comparison category NL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="case-stack">UX Design · A/B Testing · CRO · Accessibility</p>
+
+      </article>
+
+      <footer class="content-footer">AWUB · v4 · Updated 2026-07-22</footer>
+
+    </main>
+  </div>
+
+  <script>
+    function slideNav(btn, dir) {
+      var wrap = btn.parentElement;
+      var slides = wrap.querySelectorAll('.slide');
+      var i = 0;
+      slides.forEach(function(s, idx) { if (s.classList.contains('active')) i = idx; });
+      slides[i].classList.remove('active');
+      i = (i + dir + slides.length) % slides.length;
+      slides[i].classList.add('active');
+    }
+
+    function select(id) {
+      document.querySelectorAll('.sidebar-item').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      document.querySelectorAll('.case-panel').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      document.querySelector('.sidebar-item[data-case="' + id + '"]').classList.add('active');
+      document.getElementById(id).classList.add('active');
+
+      // Scroll content back to top on case switch
+      document.getElementById('content').scrollTop = 0;
+    }
+  </script>
 
 </body>
 </html>
