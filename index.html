@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Use Cases — AWUB</title>
+  <title>Use Cases - AWUB</title>
   <style>
 
     /* ── Reset ──────────────────────────────────────── */
@@ -156,23 +156,14 @@
       color: #ddd;
     }
 
-    /* Image */
+    /* Image + slideshow */
     .case-image {
+      position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
       background: #f0f0f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       margin-bottom: 32px;
       overflow: hidden;
-    }
-
-    .case-image span {
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #737373;
     }
 
     .case-image img {
@@ -182,10 +173,22 @@
       display: block;
     }
 
-    /* ── Slideshow ───────────────────────────────────── */
-    .case-image { position: relative; }
-    .slide { display: none; width: 100%; height: 100%; align-items: center; justify-content: center; }
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
     .slide.active { display: flex; }
+
+    .slide span {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #737373;
+    }
+
     .slide-btn {
       position: absolute;
       top: 50%;
@@ -210,30 +213,19 @@
       margin-bottom: 8px;
     }
 
-    /* ── About ───────────────────────────────────────── */
-    .case-intro p {
+    /* ── Text blocks (intro / role / reflection) ─────── */
+    .case-intro,
+    .case-role,
+    .case-refl {
+      margin: 32px 0;
+    }
+
+    .case-intro p,
+    .case-role p,
+    .case-refl p {
       font-size: 15px;
       color: #222;
       line-height: 1.75;
-    }
-
-    /* ── Divider ─────────────────────────────────────── */
-    .case-divider {
-      border: none;
-      border-top: 1px solid #ececec;
-      margin: 28px 0;
-    }
-
-    /* ── Role ────────────────────────────────────────── */
-    .case-role {
-      padding-left: 16px;
-      border-left: 2px solid #e0e0e0;
-    }
-
-    .case-role p {
-      font-size: 14px;
-      color: #444;
-      line-height: 1.7;
     }
 
     /* ── STAR ────────────────────────────────────────── */
@@ -339,315 +331,303 @@
 </head>
 <body>
 
-  <header>
-    <h1>Use Cases</h1>
-    <span class="name">AWUB</span>
-  </header>
+<header>
+  <h1>Use Cases</h1>
+  <span class="name">AWUB</span>
+</header>
 
-  <div class="main">
+<div class="main">
 
-    <!-- ══════════════════════════════════════════
-         SIDEBAR
-         data-case must match the article id below
-    ══════════════════════════════════════════ -->
-    <nav class="sidebar">
-      <ul>
+  <!-- ══════════════════════════════════════════
+       SIDEBAR
+       data-case must match the article id below
+  ══════════════════════════════════════════ -->
+  <nav class="sidebar">
+    <ul>
 
-        <li>
-          <div class="sidebar-item active" data-case="hmi" onclick="select('hmi')">
-            <span class="item-title">Control HMI</span>
-            <span class="item-meta">
+      <li>
+        <div class="sidebar-item active" data-case="hmi" onclick="select('hmi')">
+          <span class="item-title">Control HMI</span>
+          <span class="item-meta">
               <span>Industrial UX</span>
               <span>2024</span>
             </span>
-          </div>
-        </li>
+        </div>
+      </li>
 
-        <li>
-          <div class="sidebar-item" data-case="cep" onclick="select('cep')">
-            <span class="item-title">CEP Tool</span>
-            <span class="item-meta">
+      <li>
+        <div class="sidebar-item" data-case="cep" onclick="select('cep')">
+          <span class="item-title">CEP Tool</span>
+          <span class="item-meta">
               <span>Internal Tooling</span>
-              <span>2025</span>
+              <span>2025–2026</span>
             </span>
-          </div>
-        </li>
+        </div>
+      </li>
 
-        <li>
-          <div class="sidebar-item" data-case="gaslicht" onclick="select('gaslicht')">
-            <span class="item-title">Gaslicht.com</span>
-            <span class="item-meta">
+      <li>
+        <div class="sidebar-item" data-case="gaslicht" onclick="select('gaslicht')">
+          <span class="item-title">Gaslicht.com</span>
+          <span class="item-meta">
               <span>B2C Web</span>
               <span>2021</span>
             </span>
-          </div>
-        </li>
-
-      </ul>
-    </nav>
-
-    <!-- ══════════════════════════════════════════
-         CONTENT
-         id must match data-case in the sidebar
-    ══════════════════════════════════════════ -->
-    <main class="content" id="content">
-
-      <!-- ─────────────────────────────────────
-           CASE: Control HMI
-      ───────────────────────────────────── -->
-      <article class="case-panel active" id="hmi">
-
-        <h2>Control HMI — Hydrogen Fueling Station</h2>
-        <div class="case-meta">
-          <span>Industrial UX</span>
-          <span>2024</span>
-          <span>Resato Hydrogen Technology</span>
         </div>
+      </li>
 
-        <!-- Put <img> tags inside each .slide div to swap in real images -->
-        <div class="case-image">
-          <div class="slide active"><span>Image 1 placeholder</span></div>
-          <div class="slide"><span>Image 2 placeholder</span></div>
-          <div class="slide"><span>Image 3 placeholder</span></div>
-          <button class="slide-btn prev" onclick="slideNav(this,-1)">&#8249;</button>
-          <button class="slide-btn next" onclick="slideNav(this,1)">&#8250;</button>
-        </div>
+    </ul>
+  </nav>
 
-        <div class="case-intro">
-          <p class="section-label">About this project</p>
-          <p>A real-time operator interface for hydrogen fueling stations, built in Ignition Perspective. It covers filling bay control, P&ID visualization, and a PackML-based state machine — the primary interface between operator and station hardware.</p>
-        </div>
+  <!-- ══════════════════════════════════════════
+       CONTENT
+       id must match data-case in the sidebar
+  ══════════════════════════════════════════ -->
+  <main class="content" id="content">
 
-        <hr class="case-divider">
+    <!-- ─────────────────────────────────────
+         CASE: Control HMI
+    ───────────────────────────────────── -->
+    <article class="case-panel active" id="hmi">
 
-        <div class="case-role">
-          <p class="section-label">My role</p>
-          <p>Lead designer and front-end developer. Responsible for the full HMI architecture, component design, and Ignition Perspective implementation — from tag structure and UDT definitions to P&ID views and state machine visualization.</p>
-        </div>
+      <h2>Control HMI - Hydrogen Fueling Station</h2>
+      <div class="case-meta">
+        <span>Industrial UX</span>
+        <span>2024</span>
+        <span>Resato Hydrogen Technology</span>
+      </div>
 
-        <hr class="case-divider">
+      <!-- Put <img> tags inside each .slide div to swap in real images -->
+      <div class="case-image">
+        <div class="slide active"><span>Image 1 placeholder</span></div>
+        <div class="slide"><span>Image 2 placeholder</span></div>
+        <div class="slide"><span>Image 3 placeholder</span></div>
+        <button class="slide-btn prev" onclick="slideNav(this,-1)">&#8249;</button>
+        <button class="slide-btn next" onclick="slideNav(this,1)">&#8250;</button>
+      </div>
 
-        <div class="star-row">
-          <span class="star-key">S</span>
-          <p class="star-val">Resato's new hydrogen fueling stations had no standardized operator interface. Engineers relied on PLC diagnostics and separate documentation to monitor station states.</p>
-        </div>
+      <div class="case-intro">
+        <p class="section-label">About this project</p>
+        <p>A real-time operator interface for hydrogen fueling stations, built in Ignition Perspective. It covers filling bay control, P&ID visualization, and a PackML-based state machine - the primary interface between operator and station hardware.</p>
+      </div>
 
-        <div class="star-row">
-          <span class="star-key">T</span>
-          <p class="star-val">Design and build a complete HMI MVP covering filling bays, P&ID views, and PackML state machine visualization — ready for live deployment before September 2026.</p>
-        </div>
+      <div class="case-role">
+        <p class="section-label">My role</p>
+        <p>Lead designer and front-end developer. Responsible for the full HMI architecture, component design, and Ignition Perspective implementation - from tag structure and UDT definitions to P&ID views and state machine visualization.</p>
+      </div>
 
-        <div class="star-row">
-          <span class="star-key">A</span>
-          <p class="star-val">Designed the component architecture using UDTs, built P&ID symbols to ISO 10628-2 standards, defined the style class system, and implemented the full state machine view in Ignition Perspective.</p>
-        </div>
+      <div class="star-row">
+        <span class="star-key">S</span>
+        <p class="star-val">Resato's new hydrogen fueling stations had no standardized operator interface. Engineers relied on PLC diagnostics and separate documentation to monitor station states.</p>
+      </div>
 
-        <div class="star-row">
-          <span class="star-key">R</span>
-          <div class="star-val-wrap">
-            <p class="star-val">MVP delivered on schedule. Operators can monitor and control all station states from a single interface, cutting fault identification time significantly.</p>
-            <div class="kpi-grid">
-              <div class="kpi-tile">
-                <span class="kpi-value">&lt; 1 min</span>
-                <span class="kpi-label">Fault identification (was 5–10 min)</span>
-              </div>
-              <div class="kpi-tile">
-                <span class="kpi-value">On time</span>
-                <span class="kpi-label">MVP delivered before Sept 2026</span>
-              </div>
-              <div class="kpi-tile">
-                <span class="kpi-value">ISO 10628-2</span>
-                <span class="kpi-label">P&ID symbol compliance</span>
-              </div>
+      <div class="star-row">
+        <span class="star-key">T</span>
+        <p class="star-val">Design and build a complete HMI MVP covering filling bays, P&ID views, and PackML state machine visualization - ready for live deployment before September 2026.</p>
+      </div>
+
+      <div class="star-row">
+        <span class="star-key">A</span>
+        <p class="star-val">Designed the component architecture using UDTs, built P&ID symbols to ISO 10628-2 standards, defined the style class system, and implemented the full state machine view in Ignition Perspective.</p>
+      </div>
+
+      <div class="star-row">
+        <span class="star-key">R</span>
+        <div class="star-val-wrap">
+          <p class="star-val">MVP delivered on schedule. Operators can monitor and control all station states from a single interface, cutting fault identification time significantly.</p>
+          <div class="kpi-grid">
+            <div class="kpi-tile">
+              <span class="kpi-value">&lt; 1 min</span>
+              <span class="kpi-label">Fault identification (was 5–10 min)</span>
+            </div>
+            <div class="kpi-tile">
+              <span class="kpi-value">On time</span>
+              <span class="kpi-label">MVP delivered before Sept 2026</span>
+            </div>
+            <div class="kpi-tile">
+              <span class="kpi-value">ISO 10628-2</span>
+              <span class="kpi-label">P&ID symbol compliance</span>
             </div>
           </div>
         </div>
+      </div>
 
-        <p class="case-stack">Ignition Perspective · P&ID · UDT · ISO 10628-2 · SVG components</p>
+      <p class="case-stack">Ignition Perspective · P&ID · UDT · ISO 10628-2 · SVG components</p>
 
-      </article>
+    </article>
 
-      <!-- ─────────────────────────────────────
-           CASE: CEP Tool
-      ───────────────────────────────────── -->
-      <article class="case-panel" id="cep">
+    <!-- ─────────────────────────────────────
+         CASE: CEP Tool
+    ───────────────────────────────────── -->
+    <article class="case-panel" id="cep">
 
-        <h2>CEP Tool — Commissioning Engineer Platform</h2>
-        <div class="case-meta">
-          <span>Internal Tooling</span>
-          <span>2025–2026</span>
-          <span>Resato Hydrogen Technology</span>
-        </div>
+      <h2>CEP Tool - Commissioning Engineer Platform</h2>
+      <div class="case-meta">
+        <span>Internal Tooling</span>
+        <span>2025–2026</span>
+        <span>Resato Hydrogen Technology</span>
+      </div>
 
-        <!-- Put <img> tags inside each .slide div to swap in real images -->
-        <div class="case-image">
-          <div class="slide active"><span>Image 1 placeholder</span></div>
-          <div class="slide"><span>Image 2 placeholder</span></div>
-          <div class="slide"><span>Image 3 placeholder</span></div>
-          <button class="slide-btn prev" onclick="slideNav(this,-1)">&#8249;</button>
-          <button class="slide-btn next" onclick="slideNav(this,1)">&#8250;</button>
-        </div>
+      <!-- Put <img> tags inside each .slide div to swap in real images -->
+      <div class="case-image">
+        <div class="slide active"><span>Image 1 placeholder</span></div>
+        <div class="slide"><span>Image 2 placeholder</span></div>
+        <div class="slide"><span>Image 3 placeholder</span></div>
+        <button class="slide-btn prev" onclick="slideNav(this,-1)">&#8249;</button>
+        <button class="slide-btn next" onclick="slideNav(this,1)">&#8250;</button>
+      </div>
 
-        <div class="case-intro">
-          <p class="section-label">About this project</p>
-          <p>An internal web platform that gives commissioning engineers a single environment to configure, validate, and document hydrogen station setups — deployable to both staging and production via Docker. Currently entering beta field testing.</p>
-        </div>
+      <div class="case-intro">
+        <p class="section-label">About this project</p>
+        <p>An internal web platform that gives commissioning engineers a single environment to configure, validate, and document hydrogen station setups - deployable to both staging and production via Docker. Currently entering beta field testing.</p>
+      </div>
 
-        <hr class="case-divider">
+      <div class="case-role">
+        <p class="section-label">My role</p>
+        <p>Front-end developer. Responsible for the full UI, environment-aware deployment setup, and API integration. Collaborated with SBEC (backend) and EBRO (test automation).</p>
+      </div>
 
-        <div class="case-role">
-          <p class="section-label">My role</p>
-          <p>Front-end developer. Responsible for the full UI, environment-aware deployment setup, and API integration. Collaborated with SBEC (backend) and EBRO (test automation).</p>
-        </div>
+      <div class="star-row">
+        <span class="star-key">S</span>
+        <p class="star-val">Engineers spent 6–8 hours of direct, uninterrupted time per commissioning report using spreadsheets and manual checklists to configure and validate hydrogen stations on-site - an average of 7 hours, or roughly €350 in labor cost per report at a fully loaded rate of €50/hour.</p>
+      </div>
 
-        <hr class="case-divider">
+      <div class="star-row">
+        <span class="star-key">T</span>
+        <p class="star-val">Build the front-end for a unified commissioning platform that works across staging and production environments and supports engineers in the field.</p>
+      </div>
 
-        <div class="star-row">
-          <span class="star-key">S</span>
-          <p class="star-val">Engineers spent 6–8 hours of direct, uninterrupted time per commissioning report using spreadsheets and manual checklists to configure and validate hydrogen stations on-site — an average of 7 hours, or roughly €350 in labor cost per report at a fully loaded rate of €50/hour.</p>
-        </div>
+      <div class="star-row">
+        <span class="star-key">A</span>
+        <p class="star-val">Documented the functionality in a functional specification, wrote a test plan to validate the tool methodically, and built the UI in vanilla HTML/CSS/JS with Docker deployment for both environments. The first test round uncovered a technical issue, which was diagnosed and fixed, then successfully re-verified in a second round with minor advice points.</p>
+      </div>
 
-        <div class="star-row">
-          <span class="star-key">T</span>
-          <p class="star-val">Build the front-end for a unified commissioning platform that works across staging and production environments and supports engineers in the field.</p>
-        </div>
-
-        <div class="star-row">
-          <span class="star-key">A</span>
-          <p class="star-val">Documented the functionality in a functional specification, wrote a test plan to validate the tool methodically, and built the UI in vanilla HTML/CSS/JS with Docker deployment for both environments. The first test round uncovered a technical issue, which was diagnosed and fixed, then successfully re-verified in a second round with minor advice points.</p>
-        </div>
-
-        <div class="star-row">
-          <span class="star-key">R</span>
-          <div class="star-val-wrap">
-            <p class="star-val">Two independent report-generation tests (7 min 20 sec and 9 min 40 sec, averaging 8.5 minutes) show a 98% reduction in direct time per report — down from 7 hours to 8.5 minutes, or from €350 to roughly €7 in labor cost. The tool is now moving into beta field testing.</p>
-            <div class="kpi-grid">
-              <div class="kpi-tile">
-                <span class="kpi-value">-98%</span>
-                <span class="kpi-label">Direct time per report (7h → 8.5 min)</span>
-              </div>
-              <div class="kpi-tile">
-                <span class="kpi-value">€350 → €7</span>
-                <span class="kpi-label">Labor cost per report</span>
-              </div>
-              <div class="kpi-tile">
-                <span class="kpi-value">Beta</span>
-                <span class="kpi-label">Now field-testing with engineers</span>
-              </div>
+      <div class="star-row">
+        <span class="star-key">R</span>
+        <div class="star-val-wrap">
+          <p class="star-val">Two independent report-generation tests (7 min 20 sec and 9 min 40 sec, averaging 8.5 minutes) show a 98% reduction in direct time per report - down from 7 hours to 8.5 minutes, or from €350 to roughly €7 in labor cost. The tool is now moving into beta field testing.</p>
+          <div class="kpi-grid">
+            <div class="kpi-tile">
+              <span class="kpi-value">-98%</span>
+              <span class="kpi-label">Direct time per report (7h → 8.5 min)</span>
+            </div>
+            <div class="kpi-tile">
+              <span class="kpi-value">€350 → €7</span>
+              <span class="kpi-label">Labor cost per report</span>
+            </div>
+            <div class="kpi-tile">
+              <span class="kpi-value">Beta</span>
+              <span class="kpi-label">Now field-testing with engineers</span>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="star-row">
-          <span class="star-key">Refl.</span>
-          <p class="star-val">The failed first test round underscored how important early, methodical testing is for catching technical limitations before a tool goes live. Development itself was challenging, as both SBEC and I had to learn a lot of new things along the way. A clear appetite for this solution has emerged across the organization, given the scale of the time and cost savings. A next step is measuring the indirect time (waiting on others), which ran up to 40 hours per report in the old process and may hold the largest remaining savings potential — still to be measured.</p>
-        </div>
+      <div class="case-refl">
+        <p class="section-label">Reflection</p>
+        <p>The failed first test round underscored how important early, methodical testing is for catching technical limitations before a tool goes live. Development itself was challenging, as both SBEC and I had to learn a lot of new things along the way. A clear appetite for this solution has emerged across the organization, given the scale of the time and cost savings. A next step is measuring the indirect time (waiting on others), which ran up to 40 hours per report in the old process and may hold the largest remaining savings potential - still to be measured.</p>
+      </div>
 
-        <p class="case-stack">HTML · CSS · JavaScript · Docker · REST API</p>
+      <p class="case-stack">HTML · CSS · JavaScript · Docker · REST API</p>
 
-      </article>
+    </article>
 
-      <!-- ─────────────────────────────────────
-           CASE: Gaslicht.com
-      ───────────────────────────────────── -->
-      <article class="case-panel" id="gaslicht">
+    <!-- ─────────────────────────────────────
+         CASE: Gaslicht.com
+    ───────────────────────────────────── -->
+    <article class="case-panel" id="gaslicht" lang="nl">
 
-        <h2>Gaslicht.com — Energy Comparison Platform</h2>
-        <div class="case-meta">
-          <span>B2C Web</span>
-          <span>2021</span>
-          <span>Bencom Group</span>
-        </div>
+      <h2>Gaslicht.com - Zonnepanelen vergelijker</h2>
+      <div class="case-meta">
+        <span>B2C Web</span>
+        <span>2021</span>
+        <span>Bencom Group</span>
+      </div>
 
-        <!-- Put <img> tags inside each .slide div to swap in real images -->
-        <div class="case-image">
-          <div class="slide active"><span>Image 1 placeholder</span></div>
-          <div class="slide"><span>Image 2 placeholder</span></div>
-          <div class="slide"><span>Image 3 placeholder</span></div>
-          <button class="slide-btn prev" onclick="slideNav(this,-1)">&#8249;</button>
-          <button class="slide-btn next" onclick="slideNav(this,1)">&#8250;</button>
-        </div>
+      <!-- Put <img> tags inside each .slide div to swap in real images -->
+      <div class="case-image">
+        <div class="slide active"><span>Image 1 placeholder</span></div>
+        <div class="slide"><span>Image 2 placeholder</span></div>
+        <div class="slide"><span>Image 3 placeholder</span></div>
+        <button class="slide-btn prev" onclick="slideNav(this,-1)">&#8249;</button>
+        <button class="slide-btn next" onclick="slideNav(this,1)">&#8250;</button>
+      </div>
 
-        <div class="case-intro">
-          <p class="section-label">About this project</p>
-          <p>One of the Netherlands' largest energy comparison platforms, serving millions of users annually. The platform helps consumers compare and switch energy providers — a high-traffic, conversion-critical product.</p>
-        </div>
+      <div class="case-intro">
+        <p class="section-label">About this project</p>
+        <p>Gaslicht.com vergelijkt energiecontracten voor particulieren en helpt hen overstappen naar het beste energiecontract. Bij een overstap naar een andere leverancier verliest een klant normaal gesproken het inzicht in het verbruik uit de afgelopen contractperiode. Om klanten aan Gaslicht te binden werd een add-on ontwikkeld waarmee gebruikers hun energieverbruik konden koppelen en opslaan bij Gaslicht zelf. Doordat deze data onafhankelijk van de leverancier bewaard blijft, houden klanten altijd toegang tot hun verbruiksgeschiedenis, wat overstappen laagdrempeliger maakt en de klantrelatie met Gaslicht versterkt.</p>
+      </div>
 
-        <hr class="case-divider">
+      <div class="case-role">
+        <p class="section-label">My Role</p>
+        <p>UX/UI designer voor de energiedata add-on binnen de Gaslicht-app. Verantwoordelijk voor het volledige proces: wireframes, userflows, intern testen, het testen van de databetrouwbaarheid, en overleg met managers en product owners over scope en haalbaarheid.</p>
+      </div>
 
-        <div class="case-role">
-          <p class="section-label">My role</p>
-          <p>UX designer and front-end developer within a multidisciplinary team. Responsible for interaction design, front-end implementation, and CRO across key conversion flows.</p>
-        </div>
+      <div class="star-row">
+        <span class="star-key">S</span>
+        <p class="star-val">Klanten die overstapten naar een andere energieleverancier raakten het inzicht in hun verbruik over de afgelopen contractperiode kwijt. Gaslicht.com, met jaarlijks miljoenen gebruikers, zag hierin een kans om klanten te binden door hen dit inzicht altijd beschikbaar te houden, onafhankelijk van de leverancier.</p>
+      </div>
 
-        <hr class="case-divider">
+      <div class="star-row">
+        <span class="star-key">T</span>
+        <p class="star-val">Ontwerp een add-on binnen de Gaslicht-app waarmee gebruikers hun energieverbruik (stroom, opwek en gas) gebruiksvriendelijk konden inzien, gevoed door een koppeling met de energieleverancier.</p>
+      </div>
 
-        <div class="star-row">
-          <span class="star-key">S</span>
-          <p class="star-val">Gaslicht.com operated in a competitive B2C energy market where UX quality directly drove conversion and customer trust.</p>
-        </div>
+      <div class="star-row">
+        <span class="star-key">A</span>
+        <p class="star-val">De brondata kwam via een koppeling met de energieleverancier, standaard eenmaal per dag opgehaald, met toestemming van de leverancier frequenter. Voordat de data getoond werd, vergeleek ik de weergegeven waarden met de brondata van de leverancier om de betrouwbaarheid te controleren. In het ontwerp splitste ik de data in stroomverbruik, eventuele opwek en gasverbruik, met een periode-selectie voor dag-, week-, maand- en jaarweergave inclusief navigatie naar de vorige of volgende periode.</p>
+      </div>
 
-        <div class="star-row">
-          <span class="star-key">T</span>
-          <p class="star-val">Continuously improve UX and conversion performance across high-traffic comparison and sign-up flows.</p>
-        </div>
-
-        <div class="star-row">
-          <span class="star-key">A</span>
-          <p class="star-val">Redesigned key user flows, ran A/B tests, improved accessibility, and shipped front-end across multiple product updates in close collaboration with product and marketing.</p>
-        </div>
-
-        <div class="star-row">
-          <span class="star-key">R</span>
-          <div class="star-val-wrap">
-            <p class="star-val">Platform won "Website van het Jaar" multiple times during this period, ranking it among the best-rated consumer websites in the Netherlands.</p>
-            <div class="kpi-grid">
-              <div class="kpi-tile">
-                <span class="kpi-value">3×</span>
-                <span class="kpi-label">Website van het Jaar during tenure</span>
-              </div>
-              <div class="kpi-tile">
-                <span class="kpi-value">#1</span>
-                <span class="kpi-label">Energy comparison category NL</span>
-              </div>
+      <div class="star-row">
+        <span class="star-key">R</span>
+        <div class="star-val-wrap">
+          <p class="star-val">De add-on is live gegaan en is nu onderdeel van de Gaslicht-app, beschikbaar voor een klantenbestand van jaarlijks miljoenen gebruikers. De feature ondersteunt direct het klantbehoud-doel: gebruikers behouden inzicht in hun verbruiksgeschiedenis, ook na een overstap naar een andere leverancier.</p>
+          <div class="kpi-grid">
+            <div class="kpi-tile">
+              <span class="kpi-value">3×</span>
+              <span class="kpi-label">Website van het Jaar during tenure</span>
+            </div>
+            <div class="kpi-tile">
+              <span class="kpi-value">#1</span>
+              <span class="kpi-label">Energy comparison category NL</span>
             </div>
           </div>
         </div>
+      </div>
 
-        <p class="case-stack">UX Design · A/B Testing · CRO · Accessibility</p>
+      <p class="case-stack">UX Design · A/B Testing · CRO · Accessibility</p>
 
-      </article>
+    </article>
 
-      <footer class="content-footer">AWUB · v4 · Updated 2026-07-22</footer>
+    <footer class="content-footer">AWUB · v4 · Updated 2026-07-22</footer>
 
-    </main>
-  </div>
+  </main>
+</div>
 
-  <script>
-    function slideNav(btn, dir) {
-      var wrap = btn.parentElement;
-      var slides = wrap.querySelectorAll('.slide');
-      var i = 0;
-      slides.forEach(function(s, idx) { if (s.classList.contains('active')) i = idx; });
-      slides[i].classList.remove('active');
-      i = (i + dir + slides.length) % slides.length;
-      slides[i].classList.add('active');
-    }
+<script>
+  function slideNav(btn, dir) {
+    var wrap = btn.parentElement;
+    var slides = wrap.querySelectorAll('.slide');
+    var i = 0;
+    slides.forEach(function(s, idx) { if (s.classList.contains('active')) i = idx; });
+    slides[i].classList.remove('active');
+    i = (i + dir + slides.length) % slides.length;
+    slides[i].classList.add('active');
+  }
 
-    function select(id) {
-      document.querySelectorAll('.sidebar-item').forEach(function(el) {
-        el.classList.remove('active');
-      });
-      document.querySelectorAll('.case-panel').forEach(function(el) {
-        el.classList.remove('active');
-      });
-      document.querySelector('.sidebar-item[data-case="' + id + '"]').classList.add('active');
-      document.getElementById(id).classList.add('active');
+  function select(id) {
+    document.querySelectorAll('.sidebar-item').forEach(function(el) {
+      el.classList.remove('active');
+    });
+    document.querySelectorAll('.case-panel').forEach(function(el) {
+      el.classList.remove('active');
+    });
+    document.querySelector('.sidebar-item[data-case="' + id + '"]').classList.add('active');
+    document.getElementById(id).classList.add('active');
 
-      // Scroll content back to top on case switch
-      document.getElementById('content').scrollTop = 0;
-    }
-  </script>
+    // Scroll content back to top on case switch
+    document.getElementById('content').scrollTop = 0;
+  }
+</script>
 
 </body>
 </html>
