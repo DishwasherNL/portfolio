@@ -1,0 +1,291 @@
+/* ── Reset ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Scrollbars ─────────────────────────────────── */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #d8d8d8 transparent;
+}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d8d8d8; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #bbb; }
+
+/* ── Shell ──────────────────────────────────────── */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: #111;
+    background: #fff;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── Header ─────────────────────────────────────── */
+header {
+    height: 52px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 28px;
+    border-bottom: 2px solid #111;
+}
+
+header h1 {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+header .name {
+    font-size: 13px;
+    color: #666;
+    letter-spacing: 0.01em;
+}
+
+/* ── Layout ─────────────────────────────────────── */
+.main {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+/* ── Sidebar ─────────────────────────────────────── */
+.sidebar {
+    width: 252px;
+    flex-shrink: 0;
+    border-right: 1px solid #e8e8e8;
+    background: #f7f7f7;
+    overflow-y: auto;
+    padding: 24px 0 40px;
+}
+
+.sidebar ul { list-style: none; }
+
+.sidebar-item {
+    display: block;
+    padding: 12px 22px;
+    cursor: pointer;
+    border-left: 2px solid transparent;
+    transition: background 0.12s ease;
+    user-select: none;
+}
+
+.sidebar-item:hover {
+    background: #efefef;
+}
+
+.sidebar-item.active {
+    border-left-color: #111;
+    background: #fff;
+}
+
+.item-title {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: #111;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 4px;
+}
+
+.sidebar-item:not(.active) .item-title {
+    color: #555;
+}
+
+.item-meta {
+    display: flex;
+    gap: 8px;
+    font-size: 11px;
+    color: #666;
+}
+
+/* ── Content ─────────────────────────────────────── */
+.content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 52px 64px 72px;
+}
+
+/* All panels hidden; .active shown */
+.case-panel {
+    display: none;
+    max-width: 660px;
+}
+
+.case-panel.active {
+    display: block;
+}
+
+/* Title */
+.case-panel h2 {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    margin-bottom: 10px;
+}
+
+/* Meta row with · separator */
+.case-meta {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 32px;
+}
+
+.case-meta span + span::before {
+    content: '·';
+    margin: 0 10px;
+    color: #ddd;
+}
+
+/* Image + slideshow */
+.case-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #f0f0f0;
+    margin-bottom: 32px;
+    overflow: hidden;
+}
+
+.case-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.slide.active { display: flex; }
+
+.slide span {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #737373;
+}
+
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.85);
+    border: none;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.slide-btn.prev { left: 8px; }
+.slide-btn.next { right: 8px; }
+
+/* ── Section label ───────────────────────────────── */
+.section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+/* ── Text blocks (intro / role / reflection) ─────── */
+.case-intro,
+.case-role,
+.case-refl {
+    margin: 32px 0;
+}
+
+.case-intro p,
+.case-role p,
+.case-refl p {
+    font-size: 15px;
+    color: #222;
+    line-height: 1.75;
+}
+
+.case-refl p + p {
+    margin-top: 14px;
+}
+
+/* ── KPI tiles ───────────────────────────────────── */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.kpi-tile {
+    border: 1px solid #e8e8e8;
+    padding: 14px 16px;
+}
+
+.kpi-value {
+    display: block;
+    font-size: 20px;
+    font-weight: 500;
+    color: #111;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 5px;
+    line-height: 1.1;
+}
+
+.kpi-label {
+    display: block;
+    font-size: 11px;
+    color: #666;
+    line-height: 1.45;
+}
+
+/* ── Stack ───────────────────────────────────────── */
+.case-stack {
+    font-size: 12px;
+    color: #666;
+    letter-spacing: 0.02em;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #ececec;
+}
+
+/* ── Footer ──────────────────────────────────────── */
+.content-footer {
+    margin-top: 64px;
+    font-size: 12px;
+    color: #737373;
+}
+
+/* ── Mobile ──────────────────────────────────────── */
+@media (max-width: 680px) {
+    body { height: auto; overflow: auto; }
+
+    .main { flex-direction: column; overflow: visible; }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e8e8e8;
+        padding: 12px 0;
+    }
+
+    .content { padding: 32px 20px 48px; }
+
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+}
