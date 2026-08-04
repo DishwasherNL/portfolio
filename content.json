@@ -1,0 +1,65 @@
+{
+    "servicePortal": {
+        "title": "Service Portal - Resato",
+        "intro": "A centralised service portal designed to give a growing network of external partners and internal teams remote insight into hydrogen refuelling stations - reducing dependency on on-site visits and manual coordination as Resato scaled across Europe.",
+        "role": "UX/UI designer, owning the full process end to end: requirements analysis, information architecture, wireframes, interactive prototypes, and user testing, through to developer handoff.",
+        "challenge": [
+            "Resato ran two dashboards. Grafana exposed every raw data point of a station - powerful for R&D and service engineers, but unstructured and unreadable for anyone without deep station knowledge. The CARS dashboard showed station status clearly, but its fixed structure couldn't explain why a status was good or bad, and that gap would only widen as stations moved to a more modular, configurable design.",
+            "Without a self-service way to check station status, service partners contacted Resato for every notification, including simple issues that didn't need an engineer. That ate into internal capacity and drove frequent on-site visits, a cost about to grow further with new installations across Sweden, Estonia, and southern France."
+        ],
+        "approach": [
+            "The portal was scoped as a foundation for a family of dashboards, not a single product, so I chose to start with the most complex variant, the service dashboard, on the assumption that simpler customer-facing dashboards could be derived from it quickly afterwards.",
+            "The central design problem was information architecture across three very different audiences sharing one system: end users, customers who mainly needed a high-level status overview across all stations, and service partners who needed the deepest access, including a live view of a station's Control HMI and a route into the internal ticketing workflow.",
+            "Working from a formal requirements document (URS, pre-sorted into MVP and non-MVP requirements), I designed around 30 screens covering the core workflows, deliberately kept light enough to stay testable rather than over-specified. Partway through, a full ticketing integration turned out to be out of reach given available resources, and a lighter integration with the existing ticket system (OSTicket) wasn't feasible either - so for the MVP, I designed a simple external link that opens the ticket system in a new tab. I then ran user testing sessions myself with both external service partners and internal service engineers."
+        ],
+        "result": [
+            "User testing with both service partners and internal engineers went well - the direction was validated by the people who'd actually use it. Development handoff was underway when the project was paused: new management came in, the underlying platform architecture was put up for reconsideration, and shortly after, the project lost priority to other work. It remains on hold to this day.",
+            "The project never shipped, but the design work stands on its own: a fully worked-out, user-tested solution to a genuinely difficult information architecture problem, built and validated even as the organisation around it kept shifting. Not every project reaches production, and this one is a reminder that solid design work retains its value independent of that."
+        ]
+    },
+    "cep": {
+        "title": "CEP Test Tool",
+        "intro": "An internal web platform that gives commissioning engineers a single environment to configure, validate, and document hydrogen station setups - deployable to both staging and production via Docker. Currently entering beta field testing.",
+        "role": "Front-end developer. Responsible for the full UI, environment-aware deployment setup, and API integration. Collaborated with SBEC (backend) and EBRO (test automation).",
+        "challenge": "Engineers spent 6–8 hours of direct, uninterrupted time per commissioning report using spreadsheets and manual checklists to configure and validate hydrogen stations on-site - an average of 7 hours, or roughly €700 in labor cost per report at a fully loaded rate of €100/hour.",
+        "approach": "The goal was a unified commissioning platform that works across staging and production environments and supports engineers directly in the field. I documented the functionality in a functional specification, wrote a test plan to validate the tool methodically, and built the UI in vanilla HTML/CSS/JS with Docker deployment for both environments. The first test round uncovered a technical issue, which was diagnosed and fixed, then successfully re-verified in a second round with only minor advice points.",
+        "result": [
+            "Two independent report-generation tests (7 min 20 sec and 9 min 40 sec, averaging 8.5 minutes) show a 98% reduction in direct time per report - down from 7 hours to 8.5 minutes, or from €700 to roughly €7 in labor cost. The tool is now moving into beta field testing.",
+            "The failed first test round underscored how important early, methodical testing is for catching technical limitations before a tool goes live. Development itself was challenging, as both SBEC and I had to learn a lot of new things along the way. A clear appetite for this solution has emerged across the organization, given the scale of the time and cost savings. A next step is measuring indirect time (waiting on others), which ran up to 40 hours per report in the old process and may hold the largest remaining savings potential - still to be measured."
+        ],
+        "kpi1value": "-98%",
+        "kpi1label": "Direct time per report (7h → 8.5 min)",
+        "kpi2value": "€700 → €7",
+        "kpi2label": "Labor cost per report",
+        "kpi3value": "Beta",
+        "kpi3label": "Now field-testing with engineers"
+    },
+    "gaslichtSolar": {
+        "title": "Solar Panel Configurator - Gaslicht.com",
+        "intro": "Gaslicht.com helps Dutch consumers compare energy contracts. As demand for solar panels grew, the company wanted to give visitors the same quick, no-hassle clarity they were used to from the rest of the site, this time on what solar panels would mean for their own situation. That's where the name came from: \"Zonnepanelen Zonder Gedoe\" (\"Solar Panels Without Hassle\").",
+        "role": "As a mid-level UX designer, I led this project. There was no requirements document; the brief came directly from the COO, and it was up to me to figure out how to solve it. I sparred with my senior UX designer along the way, but the strategic decisions about the flow were mine to make.",
+        "challenge": "The original concept relied on LIDAR data to automatically assess a home's roof and calculate an exact price for solar panels. That turned out not to be scalable, and the final price depended too heavily on each household's specific situation anyway. The challenge became designing an alternative flow that still gave visitors a clear estimate fast, gave Gaslicht, the panel supplier, and the inverter supplier enough information to move toward a quote, and did it with as few questions as possible.",
+        "approach": "I mapped out what every party actually needed to know, then defined the smallest set of questions that satisfied all of them without overloading the visitor. From there I built the flow through several iterations, from wireframes to a clickable prototype, testing and refining each round, and guided development to keep the design intact through implementation.",
+        "result": "The tool launched as \"Zonnepanelen Zonder Gedoe\" and is still live today. The concept worked well enough that it's since been extended with a home battery configurator following the same pattern.",
+        "resultLinkText": "View it live ›",
+        "resultLinkUrl": "https://www.gaslicht.com/zonnepanelen/kopen",
+        "kpi1icon": "img/Gaslicht/SolarPanels/wvhj-winning-2025.svg",
+        "kpi1value": "2021",
+        "kpi1label": "Live since launch",
+        "kpi2value": "2×",
+        "kpi2label": "Pattern reused for home battery configurator"
+
+    },
+    "gaslichtEnergie": {
+        "title": "Mijn Energie Inzicht - Bencompare app",
+        "intro": "Gaslicht.com compares energy contracts for consumers and helps them switch to the best energy contract. When switching to a different provider, customers normally lose insight into their usage from the past contract period. To retain customers for Gaslicht, an add-on was developed that let users link and store their energy usage data with Gaslicht itself. Because this data stays available independent of the provider, customers always retain access to their usage history, which lowers the barrier to switching and strengthens the customer relationship with Gaslicht.",
+        "role": "UX/UI designer for the energy data add-on within the Bencompare app. Responsible for the full process: wireframes, user flows, internal testing, testing data reliability, and consulting with managers and product owners on scope and feasibility.",
+        "challenge": "Customers who switched to a different energy provider lost insight into their usage from the past contract period. Gaslicht.com, with millions of users annually, saw an opportunity to retain customers by keeping this insight available to them at all times, independent of the provider.",
+        "approach": "The source data came in through a connection with the energy provider, retrieved once a day by default, or more frequently with the provider's permission. Before the data was displayed, I compared the displayed values against the provider's source data to check reliability. In the design, I split the data into electricity consumption, any generation, and gas consumption, with a period selector for day, week, month, and year views, including navigation to the previous or next period.",
+        "result": "The add-on went live and is now part of the Gaslicht app, available to a customer base of millions of users annually. The feature directly supports the customer retention goal: users retain insight into their usage history, even after switching to a different provider.",
+        "kpi1value": "4,6/5",
+        "kpi1label": "1500+ Appstore reviews",
+        "kpi2value": "4,6/5",
+        "kpi2label": "150+ Google Play reviews"
+    }
+}
