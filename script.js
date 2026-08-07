@@ -109,6 +109,8 @@ fetch('content.json')
         document.getElementById('gaslicht-solar-result-link').textContent = data.gaslichtSolar.resultLinkText;
         document.getElementById('gaslicht-solar-result-link').href = data.gaslichtSolar.resultLinkUrl;
 
+
+        document.getElementById('gaslicht-solar-kpi1-icon').src = data.gaslichtSolar.kpi1icon;
         document.getElementById('gaslicht-solar-kpi1-value').textContent = data.gaslichtSolar.kpi1value;
         document.getElementById('gaslicht-solar-kpi1-label').textContent = data.gaslichtSolar.kpi1label;
         document.getElementById('gaslicht-solar-kpi2-value').textContent = data.gaslichtSolar.kpi2value;

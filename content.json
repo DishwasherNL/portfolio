@@ -43,11 +43,11 @@
         "result": "The tool launched as \"Zonnepanelen Zonder Gedoe\" and is still live today. The concept worked well enough that it's since been extended with a home battery configurator following the same pattern.",
         "resultLinkText": "View it live ›",
         "resultLinkUrl": "https://www.gaslicht.com/zonnepanelen/kopen",
-        "kpi1icon": "img/Gaslicht/SolarPanels/wvhj-winning-2025.svg",
-        "kpi1value": "2021",
-        "kpi1label": "Live since launch",
-        "kpi2value": "2×",
-        "kpi2label": "Pattern reused for home battery configurator"
+        "kpi1icon": "img/gaslicht/solar_panels/wvhj-winning-2025.svg",
+        "kpi1value": "",
+        "kpi1label": "",
+        "kpi2value": "Concept reused for battery's",
+        "kpi2label": ""
 
     },
     "gaslichtEnergie": {
