@@ -255,6 +255,12 @@ header .name {
     line-height: 1.45;
 }
 
+.kpi-icon {
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+}
+
 /* ── Stack ───────────────────────────────────────── */
 .case-stack {
     font-size: 12px;
