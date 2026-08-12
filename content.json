@@ -24,8 +24,8 @@
         "challenge": "Engineers spent 6–8 hours of direct, uninterrupted time per commissioning report using spreadsheets and manual checklists to configure and validate hydrogen stations on-site - an average of 7 hours, or roughly €700 in labor cost per report at a fully loaded rate of €100/hour.",
         "approach": "The goal was a unified commissioning platform that works across staging and production environments and supports engineers directly in the field. I documented the functionality in a functional specification, wrote a test plan to validate the tool methodically, and built the UI in vanilla HTML/CSS/JS with Docker deployment for both environments. The first test round uncovered a technical issue, which was diagnosed and fixed, then successfully re-verified in a second round with only minor advice points.",
         "result": [
-            "Two independent report-generation tests (7 min 20 sec and 9 min 40 sec, averaging 8.5 minutes) show a 98% reduction in direct time per report - down from 7 hours to 8.5 minutes, or from €700 to roughly €7 in labor cost. The tool is now moving into beta field testing.",
-            "The failed first test round underscored how important early, methodical testing is for catching technical limitations before a tool goes live. Development itself was challenging, as both SBEC and I had to learn a lot of new things along the way. A clear appetite for this solution has emerged across the organization, given the scale of the time and cost savings. A next step is measuring indirect time (waiting on others), which ran up to 40 hours per report in the old process and may hold the largest remaining savings potential - still to be measured."
+            "Two independent report-generation tests (7 min 20 sec and 9 min 40 sec, averaging 8.5 minutes) show a 98% reduction in direct time per report, down from 7 hours to 8.5 minutes. That's roughly €700 to €7 in labor cost. The tool is now moving into beta field testing.",
+            "The first test round surfaced a technical issue that was diagnosed and fixed before the second round succeeded with only minor advice points. Development was challenging, both SBEC and I had to learn a lot along the way. A next step is measuring indirect time (waiting on others), which ran up to 40 hours per report in the old process and may hold the largest remaining savings potential."
         ],
         "kpi1value": "-98%",
         "kpi1label": "Direct time per report (7h → 8.5 min)",
@@ -43,11 +43,11 @@
         "result": "The tool launched as \"Zonnepanelen Zonder Gedoe\" and is still live today. The concept worked well enough that it's since been extended with a home battery configurator following the same pattern.",
         "resultLinkText": "View it live ›",
         "resultLinkUrl": "https://www.gaslicht.com/zonnepanelen/kopen",
-        "kpi1icon": "img/gaslicht/solar_panels/wvhj-winning-2025.svg",
-        "kpi1value": "",
-        "kpi1label": "",
-        "kpi2value": "Concept reused for battery's",
-        "kpi2label": ""
+        "kpi1icon": "",
+        "kpi1value": "6-Time Award Winner",
+        "kpi1label": "Website of the Year Competition",
+        "kpi2value": "Reused Concept",
+        "kpi2label": "Concept used for home-battery comparison"
 
     },
     "gaslichtEnergie": {
