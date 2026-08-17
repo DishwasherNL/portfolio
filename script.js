@@ -58,80 +58,118 @@ function select(id) {
 // CONTENT LADEN UIT content.json
 // ══════════════════════════════════════════
 
+function setText(id, value) {
+    var el = document.getElementById(id);
+    if (el) {
+        el.textContent = value;
+    }
+}
+
+function setAttr(id, attr, value) {
+    var el = document.getElementById(id);
+    if (el) {
+        el[attr] = value;
+    }
+}
+
 fetch('content.json')
-    .then(function(response) {
+    .then(function (response) {
         return response.json();
     })
-    .then(function(data) {
+    .then(function (data) {
+
+        // ── About Me ──────────────────────
+        setText('about-me-title', data.aboutMe.title);
+
+        var expContainer = document.getElementById('about-me-experience');
+        data.aboutMe.experience.forEach(function (job) {
+            var entry = document.createElement('div');
+            entry.className = 'work-entry';
+            entry.innerHTML =
+                '<div class="work-logo-frame">' +
+                '<img class="work-logo" src="' + job.logo + '" alt="" onerror="this.style.display=\'none\'">' +
+                '</div>' +
+                '<div class="work-entry-content">' +
+                '<div class="work-entry-header">' +
+                '<span class="work-company">' + job.company + '</span>' +
+                '</div>' +
+                '<p class="work-desc">' + job.description + '</p>' +
+                '</div>';
+            expContainer.appendChild(entry);
+        });
+
+        setText('about-me-title', data.aboutMe.title);
+        setAttr('about-me-photo', 'src', data.aboutMe.photo);
+        setText('about-me-email', data.aboutMe.email);
+
+        setText('about-me-howiwork-p1', data.aboutMe.howIWork[0]);
+        setText('about-me-howiwork-p2', data.aboutMe.howIWork[1]);
+
+        setText('about-me-personal-p1', data.aboutMe.personal[0]);
 
         // ── Service Portal ──────────────────────
-        document.getElementById('service-portal-title').textContent = data.servicePortal.title;
-        document.getElementById('service-portal-intro').textContent = data.servicePortal.intro;
-        document.getElementById('service-portal-role').textContent = data.servicePortal.role;
+        setText('service-portal-title', data.servicePortal.title);
+        setText('service-portal-intro', data.servicePortal.intro);
+        setText('service-portal-role', data.servicePortal.role);
 
-        document.getElementById('service-portal-challenge-p1').textContent = data.servicePortal.challenge[0];
-        document.getElementById('service-portal-challenge-p2').textContent = data.servicePortal.challenge[1];
+        setText('service-portal-challenge-p1', data.servicePortal.challenge[0]);
+        setText('service-portal-challenge-p2', data.servicePortal.challenge[1]);
 
-        document.getElementById('service-portal-approach-p1').textContent = data.servicePortal.approach[0];
-        document.getElementById('service-portal-approach-p2').textContent = data.servicePortal.approach[1];
-        document.getElementById('service-portal-approach-p3').textContent = data.servicePortal.approach[2];
+        setText('service-portal-approach-p1', data.servicePortal.approach[0]);
+        setText('service-portal-approach-p2', data.servicePortal.approach[1]);
+        setText('service-portal-approach-p3', data.servicePortal.approach[2]);
 
-        document.getElementById('service-portal-result-p1').textContent = data.servicePortal.result[0];
-        document.getElementById('service-portal-result-p2').textContent = data.servicePortal.result[1];
-
+        setText('service-portal-result-p1', data.servicePortal.result[0]);
+        setText('service-portal-result-p2', data.servicePortal.result[1]);
 
         // ── CEP Test Tool ────────────────────────
-        document.getElementById('cep-title').textContent = data.cep.title;
-        document.getElementById('cep-intro').textContent = data.cep.intro;
-        document.getElementById('cep-role').textContent = data.cep.role;
-        document.getElementById('cep-challenge').textContent = data.cep.challenge;
-        document.getElementById('cep-approach').textContent = data.cep.approach;
+        setText('cep-title', data.cep.title);
+        setText('cep-intro', data.cep.intro);
+        setText('cep-role', data.cep.role);
+        setText('cep-challenge', data.cep.challenge);
+        setText('cep-approach', data.cep.approach);
 
-        document.getElementById('cep-result-p1').textContent = data.cep.result[0];
-        document.getElementById('cep-result-p2').textContent = data.cep.result[1];
+        setText('cep-result-p1', data.cep.result[0]);
+        setText('cep-result-p2', data.cep.result[1]);
 
-        document.getElementById('cep-kpi1-value').textContent = data.cep.kpi1value;
-        document.getElementById('cep-kpi1-label').textContent = data.cep.kpi1label;
-        document.getElementById('cep-kpi2-value').textContent = data.cep.kpi2value;
-        document.getElementById('cep-kpi2-label').textContent = data.cep.kpi2label;
-        document.getElementById('cep-kpi3-value').textContent = data.cep.kpi3value;
-        document.getElementById('cep-kpi3-label').textContent = data.cep.kpi3label;
-
+        setText('cep-kpi1-value', data.cep.kpi1value);
+        setText('cep-kpi1-label', data.cep.kpi1label);
+        setText('cep-kpi2-value', data.cep.kpi2value);
+        setText('cep-kpi2-label', data.cep.kpi2label);
+        setText('cep-kpi3-value', data.cep.kpi3value);
+        setText('cep-kpi3-label', data.cep.kpi3label);
 
         // ── Solar Panel Configurator ─────────────
-        document.getElementById('gaslicht-solar-title').textContent = data.gaslichtSolar.title;
-        document.getElementById('gaslicht-solar-intro').textContent = data.gaslichtSolar.intro;
-        document.getElementById('gaslicht-solar-role').textContent = data.gaslichtSolar.role;
-        document.getElementById('gaslicht-solar-challenge').textContent = data.gaslichtSolar.challenge;
-        document.getElementById('gaslicht-solar-approach').textContent = data.gaslichtSolar.approach;
+        setText('gaslicht-solar-title', data.gaslichtSolar.title);
+        setText('gaslicht-solar-intro', data.gaslichtSolar.intro);
+        setText('gaslicht-solar-role', data.gaslichtSolar.role);
+        setText('gaslicht-solar-challenge', data.gaslichtSolar.challenge);
+        setText('gaslicht-solar-approach', data.gaslichtSolar.approach);
 
-        document.getElementById('gaslicht-solar-result-text').textContent = data.gaslichtSolar.result + ' ';
-        document.getElementById('gaslicht-solar-result-link').textContent = data.gaslichtSolar.resultLinkText;
-        document.getElementById('gaslicht-solar-result-link').href = data.gaslichtSolar.resultLinkUrl;
+        setText('gaslicht-solar-result-text', data.gaslichtSolar.result + ' ');
+        setText('gaslicht-solar-result-link', data.gaslichtSolar.resultLinkText);
+        setAttr('gaslicht-solar-result-link', 'href', data.gaslichtSolar.resultLinkUrl);
 
-
-        document.getElementById('gaslicht-solar-kpi1-icon').src = data.gaslichtSolar.kpi1icon;
-        document.getElementById('gaslicht-solar-kpi1-value').textContent = data.gaslichtSolar.kpi1value;
-        document.getElementById('gaslicht-solar-kpi1-label').textContent = data.gaslichtSolar.kpi1label;
-        document.getElementById('gaslicht-solar-kpi2-value').textContent = data.gaslichtSolar.kpi2value;
-        document.getElementById('gaslicht-solar-kpi2-label').textContent = data.gaslichtSolar.kpi2label;
-
+        setAttr('gaslicht-solar-kpi1-icon', 'src', data.gaslichtSolar.kpi1icon);
+        setText('gaslicht-solar-kpi1-value', data.gaslichtSolar.kpi1value);
+        setText('gaslicht-solar-kpi1-label', data.gaslichtSolar.kpi1label);
+        setText('gaslicht-solar-kpi2-value', data.gaslichtSolar.kpi2value);
+        setText('gaslicht-solar-kpi2-label', data.gaslichtSolar.kpi2label);
 
         // ── Mijn Energie Inzicht ─────────────────
-        document.getElementById('gaslicht-energie-title').textContent = data.gaslichtEnergie.title;
-        document.getElementById('gaslicht-energie-intro').textContent = data.gaslichtEnergie.intro;
-        document.getElementById('gaslicht-energie-role').textContent = data.gaslichtEnergie.role;
-        document.getElementById('gaslicht-energie-challenge').textContent = data.gaslichtEnergie.challenge;
-        document.getElementById('gaslicht-energie-approach').textContent = data.gaslichtEnergie.approach;
-        document.getElementById('gaslicht-energie-result').textContent = data.gaslichtEnergie.result;
+        setText('gaslicht-energie-title', data.gaslichtEnergie.title);
+        setText('gaslicht-energie-intro', data.gaslichtEnergie.intro);
+        setText('gaslicht-energie-role', data.gaslichtEnergie.role);
+        setText('gaslicht-energie-challenge', data.gaslichtEnergie.challenge);
+        setText('gaslicht-energie-approach', data.gaslichtEnergie.approach);
+        setText('gaslicht-energie-result', data.gaslichtEnergie.result);
 
-        document.getElementById('gaslicht-energie-kpi1-value').textContent = data.gaslichtEnergie.kpi1value;
-        document.getElementById('gaslicht-energie-kpi1-label').textContent = data.gaslichtEnergie.kpi1label;
-        document.getElementById('gaslicht-energie-kpi2-value').textContent = data.gaslichtEnergie.kpi2value;
-        document.getElementById('gaslicht-energie-kpi2-label').textContent = data.gaslichtEnergie.kpi2label;
-
+        setText('gaslicht-energie-kpi1-value', data.gaslichtEnergie.kpi1value);
+        setText('gaslicht-energie-kpi1-label', data.gaslichtEnergie.kpi1label);
+        setText('gaslicht-energie-kpi2-value', data.gaslichtEnergie.kpi2value);
+        setText('gaslicht-energie-kpi2-label', data.gaslichtEnergie.kpi2label);
 
     })
-    .catch(function(error) {
+    .catch(function (error) {
         console.error('Content kon niet geladen worden:', error);
     });

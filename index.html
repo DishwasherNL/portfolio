@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 
 <header>
   <h1>Use Cases</h1>
@@ -24,9 +24,18 @@
   ══════════════════════════════════════════ -->
   <nav class="sidebar">
     <ul>
+      <li>
+        <div class="sidebar-item active" style="margin-bottom: 20px" data-case="about-me" onclick="select('about-me')">
+          <span class="item-title">Arthur Wubbels</span>
+          <span class="item-meta">
+        <span>About Me</span>
+        <span></span>
+      </span>
+        </div>
+      </li>
 
       <li>
-        <div class="sidebar-item active" data-case="service-portal" onclick="select('service-portal')">
+        <div class="sidebar-item" data-case="service-portal" onclick="select('service-portal')">
           <span class="item-title">Service Portal Dashboard</span>
           <span class="item-meta">
         <span>Resato Hydrogen</span>
@@ -75,9 +84,45 @@
   <main class="content" id="content">
 
     <!-- ─────────────────────────────────────
+     CASE: About Me
+───────────────────────────────────── -->
+    <article class="case-panel active" id="about-me">
+
+      <div class="about-me-header">
+        <div class="about-me-photo">
+          <img id="about-me-photo" src="img/arthur.png" alt="Arthur Wubbels">
+        </div>
+        <div class="about-me-header-text">
+          <h2 id="about-me-title"></h2>
+          <div class="case-meta">
+            <span>UX Designer | Product Designer</span>
+            <span id="about-me-email"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-intro">
+        <p class="section-label">Work Experience</p>
+        <div id="about-me-experience" class="work-history"></div>
+      </div>
+
+      <div class="case-role">
+        <p class="section-label">How I work</p>
+        <p id="about-me-howiwork-p1"></p>
+        <p id="about-me-howiwork-p2"></p>
+      </div>
+
+      <div class="case-role">
+        <p class="section-label">Personal</p>
+        <p id="about-me-personal-p1"></p>
+      </div>
+
+    </article>
+
+    <!-- ─────────────────────────────────────
          CASE: Service Portal
     ───────────────────────────────────── -->
-    <article class="case-panel active" id="service-portal">
+    <article class="case-panel" id="service-portal">
 
       <h2 id="service-portal-title"></h2>
       <div class="case-meta">
@@ -313,7 +358,6 @@
 
     </article>
 
-    <footer class="content-footer">AWUB · v5</footer>
 
   </main>
 </div>
