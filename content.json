@@ -1,4 +1,30 @@
 {
+    "aboutMe": {
+        "title": "Arthur Wubbels",
+        "photo": "img/arthur.png",
+        "intro": "Intro",
+        "role": "Role",
+        "email": "arthurwubbels@gmail.com",
+        "experience": [
+            {
+                "company": "Resato Hydrogen Technology | 2023 - Present",
+                "logo": "img/logos/resato.png",
+                "description": "Design and development of UX/UI for industrial platforms, including control and HMI screens, data-driven dashboards, and internal tools, based on user research, prototyping, and user testing."
+            },
+            {
+                "company": "Bencom Group | 2020 - 2023",
+                "logo": "img/logos/bencom.png",
+                "description": "I have designed the UX/UI for major national websites and mobile apps, developing data-driven solutions validated through A/B testing to continuously improve the user experience and performance."
+            }
+        ],
+        "howIWork": [
+            "I'm a product UX designer with a technical background, designing from both the user's side and the technology behind it. I aim for solutions that are clear, scalable, and logical, never just visually polished. I'm also building my front-end skills, so I can think along to implementation level, not just hand off a design, which makes collaboration with development teams smoother.\"",
+            "I think commercially: I choose what's practical and feasible over what's ideal on paper. I adapt quickly, work well under pressure, and I'm sociable and positive. I'm drawn to software, energy, defense, and tech, and I'd rather work on sustainable, European projects, for the right role I'm open to relocating internationally."
+        ],
+        "personal": [
+        "Outside of work I'm 34, married, and dad to Abby, our 1.5-year-old daughter. We live together in Groningen. I play squash twice a week with friends, I'm a social guy who loves being active, and as a family we're always up for exploring new places, we're genuinely open to relocating somewhere new together.\""
+            ]
+    },
     "servicePortal": {
         "title": "Service Portal - Resato",
         "intro": "A centralised service portal designed to give a growing network of external partners and internal teams remote insight into hydrogen refuelling stations - reducing dependency on on-site visits and manual coordination as Resato scaled across Europe.",
