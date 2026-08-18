@@ -27,20 +27,18 @@
     },
     "controlHmi": {
         "title": "Control HMI - Resato",
-        "intro": "Introduction",
-        "role": "Role definition",
+        "intro": "Control HMI for a new generation of hydrogen fueling stations (TTFS), built in Ignition Perspective. The interface operators use on-site to monitor and control filling bays, read P&IDs, and follow the station's state machine. Ignition was new territory for Resato entirely, there was no existing platform, no conventions, no prior work to build on.",
+        "role": "Designer responsible for translating input from a wide group of specialists, PLC engineers, experienced Siemens HMI engineers, a mechanical engineer, chief technologists, into an interface that's both technically correct and usable for a service operator standing at the station. I depended on their domain knowledge, but the design decisions and the usability of the result were mine to own.",
         "challenge": [
-            "Challenge p1",
-            "Challenge p2"
+            "I came from B2C web work at Gaslicht.com, designing for millions of end consumers. This was the opposite: a small number of highly technical users, physical hardware, safety-critical processes, and a vocabulary I didn't speak yet, PLC tags, UDTs, P&ID symbols. On top of that, the team and management around the project changed regularly, so there wasn't one fixed source of truth to learn from. And within the team, experienced Siemens HMI engineers had strong opinions rooted in years of existing convention, while Ignition made a genuinely different, more intuitive setup possible. Reconciling those two wasn't just a design problem, it needed buy-in."
         ],
         "approach": [
-            "Approach p1",
-            "Approach p2",
-            "Approach p3"
+            "I started by asking a lot of questions, of PLC engineers, HMI engineers, the mechanical engineer drawing the P&IDs, until I could explain the process back in plain language. Then I checked that understanding against theirs before building on it. I also went to the factory floor and to customer sites, to see how operators actually work with the installation, not just how it was described on paper.",
+            "One concrete example: a quick-access navigation concept for switching between components. I sketched wireframes, tested them with experienced engineers, turned the feedback into a prototype, then built two versions, a lean one that just worked, and a richer one showing more live data. Before pushing either further, I checked what was actually feasible to build in Ignition. Tested again, then sat down with stakeholders, and given the time pressure we agreed to ship the lean version first."
         ],
         "result": [
-            "Result p1",
-            "Result p2"
+            "The MVP shipped on schedule, with P&ID symbols and popup navigation built to ISO 10628-2. The TTFS project it was built for was later discontinued for business reasons unrelated to the HMI itself, but because the architecture was built for reuse, the Control Modules and Ignition knowledge carried straight into the platform's next generation, and became the basis for a proposal on where to take it further.",
+            "What stuck with me: in an unfamiliar technical domain, the value I add isn't pretending to already understand it, it's staying curious, checking my understanding out loud instead of assuming, and going to see the real thing in use instead of relying only on what specialists tell me."
         ]
     },
     "servicePortal": {
