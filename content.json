@@ -25,6 +25,24 @@
         "Outside of work I'm 34, married, and dad to Abby, our 1.5-year-old daughter. We live together in Groningen. I play squash twice a week with friends, I'm a social guy who loves being active, and as a family we're always up for exploring new places, we're genuinely open to relocating somewhere new together.\""
             ]
     },
+    "controlHmi": {
+        "title": "Control HMI - Resato",
+        "intro": "Introduction",
+        "role": "Role definition",
+        "challenge": [
+            "Challenge p1",
+            "Challenge p2"
+        ],
+        "approach": [
+            "Approach p1",
+            "Approach p2",
+            "Approach p3"
+        ],
+        "result": [
+            "Result p1",
+            "Result p2"
+        ]
+    },
     "servicePortal": {
         "title": "Service Portal - Resato",
         "intro": "A centralised service portal designed to give a growing network of external partners and internal teams remote insight into hydrogen refuelling stations - reducing dependency on on-site visits and manual coordination as Resato scaled across Europe.",
