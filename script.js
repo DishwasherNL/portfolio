@@ -122,6 +122,19 @@ fetch('content.json')
         setText('service-portal-result-p1', data.servicePortal.result[0]);
         setText('service-portal-result-p2', data.servicePortal.result[1]);
 
+        // ── Control Hmi ──────────────────────
+        setText('control-hmi-title', data.controlHmi.title);
+        setText('control-hmi-intro', data.controlHmi.intro);
+        setText('control-hmi-role', data.controlHmi.role);
+
+        setText('control-hmi-challenge-p1', data.controlHmi.challenge[0]);
+
+        setText('control-hmi-approach-p1', data.controlHmi.approach[0]);
+        setText('control-hmi-approach-p2', data.controlHmi.approach[1]);
+
+        setText('control-hmi-result-p1', data.controlHmi.result[0]);
+        setText('control-hmi-result-p2', data.controlHmi.result[1]);
+
         // ── CEP Test Tool ────────────────────────
         setText('cep-title', data.cep.title);
         setText('cep-intro', data.cep.intro);
