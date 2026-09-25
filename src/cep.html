@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../style.css">
+  <meta name="robots" content="noindex, nofollow">
+  <title>CEP Test Tool, Arthur Wubbels</title>
+</head>
+
+<body>
+<script src="../script.js" defer></script>
+
+<header>
+  <h1>Use Cases</h1>
+  <span class="name">Arthur Wubbels</span>
+</header>
+
+<div class="main">
+
+  <nav class="sidebar">
+    <ul>
+      <li>
+        <a class="sidebar-item" style="margin-bottom: 20px" href="../index.html">
+          <span class="item-title">Arthur Wubbels</span>
+          <span class="item-meta">
+            <span>About Me</span>
+            <span></span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="sidebar-item" href="dashboard.html">
+          <span class="item-title">Service Portal Dashboard</span>
+          <span class="item-meta">
+            <span>Resato Hydrogen</span>
+            <span>2024</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="sidebar-item" href="hmi.html">
+          <span class="item-title">Control-HMI</span>
+          <span class="item-meta">
+            <span>Resato Hydrogen</span>
+            <span>2026</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="sidebar-item active" href="cep.html">
+          <span class="item-title">CEP Test Tool</span>
+          <span class="item-meta">
+            <span>Resato Hydrogen</span>
+            <span>2025</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="sidebar-item" href="solarpanels.html">
+          <span class="item-title">Zonnepanelen Zonder Gedoe</span>
+          <span class="item-meta">
+            <span>Gaslicht.com</span>
+            <span>2021</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="sidebar-item" href="mei.html">
+          <span class="item-title">Mijn Energie Inzicht</span>
+          <span class="item-meta">
+            <span>Bencompare</span>
+            <span>2023</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="content" id="content">
+
+    <article class="case-panel active" id="cep">
+
+      <h2 id="cep-title"></h2>
+      <div class="case-meta">
+        <span>Front-end development</span>
+        <span>2025</span>
+        <span>Resato Hydrogen Technology</span>
+      </div>
+
+      <div class="case-image">
+        <div class="slide active" id="Cep1"><img src="../img/resato/RES_CEP1.webp"></div>
+        <div class="slide" id="Cep2"><img src="../img/resato/RES_CEP2.webp"></div>
+        <div class="slide" id="Cep3"><img src="../img/resato/RES_CEP3.webp"></div>
+        <div class="slide" id="Cep4"><img src="../img/resato/RES_CEP4.webp"></div>
+        <div class="slide" id="Cep5"><img src="../img/resato/RES_CEP5.webp"></div>
+        <button class="slide-btn prev" onclick="slideNav(this,-1)">&#8249;</button>
+        <button class="slide-btn next" onclick="slideNav(this,1)">&#8250;</button>
+      </div>
+
+      <div class="case-intro">
+        <p class="section-label">About this project</p>
+        <p id="cep-intro"></p>
+      </div>
+
+      <div class="case-role">
+        <p class="section-label">My role</p>
+        <p id="cep-role"></p>
+      </div>
+
+      <div class="case-refl">
+        <p class="section-label">The challenge</p>
+        <p id="cep-challenge"></p>
+      </div>
+
+      <div class="case-refl">
+        <p class="section-label">Approach</p>
+        <p id="cep-approach"></p>
+      </div>
+
+      <div class="case-refl">
+        <p class="section-label">Result &amp; reflection</p>
+        <p id="cep-result-p1"></p>
+        <p id="cep-result-p2"></p>
+        <div class="kpi-grid">
+          <div class="kpi-tile">
+            <span class="kpi-value" id="cep-kpi1-value"></span>
+            <span class="kpi-label" id="cep-kpi1-label"></span>
+          </div>
+          <div class="kpi-tile">
+            <span class="kpi-value" id="cep-kpi2-value"></span>
+            <span class="kpi-label" id="cep-kpi2-label"></span>
+          </div>
+          <div class="kpi-tile">
+            <span class="kpi-value" id="cep-kpi3-value"></span>
+            <span class="kpi-label" id="cep-kpi3-label"></span>
+          </div>
+        </div>
+      </div>
+
+    </article>
+
+  </main>
+</div>
+
+</body>
+</html>

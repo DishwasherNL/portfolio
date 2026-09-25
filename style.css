@@ -350,6 +350,13 @@ header .name {
     object-fit: contain;
 }
 
+a.sidebar-item,
+a.sidebar-item:visited {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
 /* ── Stack ───────────────────────────────────────── */
 .case-stack {
     font-size: 12px;

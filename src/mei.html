@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../style.css">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Mijn Energie Inzicht, Arthur Wubbels</title>
+</head>
+
+<body>
+<script src="../script.js" defer></script>
+
+<header>
+  <h1>Use Cases</h1>
+  <span class="name">Arthur Wubbels</span>
+</header>
+
+<div class="main">
+
+  <nav class="sidebar">
+    <ul>
+      <li>
+        <a class="sidebar-item" style="margin-bottom: 20px" href="../index.html">
+          <span class="item-title">Arthur Wubbels</span>
+          <span class="item-meta">
+            <span>About Me</span>
+            <span></span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="sidebar-item" href="dashboard.html">
+          <span class="item-title">Service Portal Dashboard</span>
+          <span class="item-meta">
+            <span>Resato Hydrogen</span>
+            <span>2024</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="sidebar-item" href="hmi.html">
+          <span class="item-title">Control-HMI</span>
+          <span class="item-meta">
+            <span>Resato Hydrogen</span>
+            <span>2026</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="sidebar-item" href="cep.html">
+          <span class="item-title">CEP Test Tool</span>
+          <span class="item-meta">
+            <span>Resato Hydrogen</span>
+            <span>2025</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="sidebar-item" href="solarpanels.html">
+          <span class="item-title">Zonnepanelen Zonder Gedoe</span>
+          <span class="item-meta">
+            <span>Gaslicht.com</span>
+            <span>2021</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="sidebar-item active" href="mei.html">
+          <span class="item-title">Mijn Energie Inzicht</span>
+          <span class="item-meta">
+            <span>Bencompare</span>
+            <span>2023</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="content" id="content">
+
+    <article class="case-panel active" id="gaslicht-energiedata" lang="en">
+
+      <h2 id="gaslicht-energie-title"></h2>
+      <div class="case-meta">
+        <span>B2C app</span>
+        <span>Bencom Group</span>
+      </div>
+
+      <div class="case-image">
+        <div class="slide active" id="Pame1"><img src="../img/gaslicht/PAME/GL_PAME1.webp"></div>
+        <div class="slide" id="Pame2"><img src="../img/gaslicht/PAME/GL_PAME2.webp"></div>
+        <div class="slide" id="Pame3"><img src="../img/gaslicht/PAME/GL_PAME3.webp"></div>
+        <button class="slide-btn prev" onclick="slideNav(this,-1)">&#8249;</button>
+        <button class="slide-btn next" onclick="slideNav(this,1)">&#8250;</button>
+      </div>
+
+      <div class="case-intro">
+        <p class="section-label">About this project</p>
+        <p id="gaslicht-energie-intro"></p>
+      </div>
+
+      <div class="case-role">
+        <p class="section-label">My role</p>
+        <p id="gaslicht-energie-role"></p>
+      </div>
+
+      <div class="case-refl">
+        <p class="section-label">The challenge</p>
+        <p id="gaslicht-energie-challenge"></p>
+      </div>
+
+      <div class="case-refl">
+        <p class="section-label">Approach</p>
+        <p id="gaslicht-energie-approach"></p>
+      </div>
+
+      <div class="case-refl">
+        <p class="section-label">Result &amp; reflection</p>
+        <p id="gaslicht-energie-result"></p>
+        <div class="kpi-grid">
+          <div class="kpi-tile">
+            <span class="kpi-value" id="gaslicht-energie-kpi1-value"></span>
+            <span class="kpi-label" id="gaslicht-energie-kpi1-label"></span>
+          </div>
+          <div class="kpi-tile">
+            <span class="kpi-value" id="gaslicht-energie-kpi2-value"></span>
+            <span class="kpi-label" id="gaslicht-energie-kpi2-label"></span>
+          </div>
+        </div>
+      </div>
+
+    </article>
+
+  </main>
+</div>
+
+</body>
+</html>

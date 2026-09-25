@@ -30,77 +30,49 @@ function slideNav(btn, dir) {
 
 
 // ══════════════════════════════════════════
-// CASE SELECTEREN (SIDEBAR NAVIGATIE)
-// ══════════════════════════════════════════
-
-function select(id) {
-    var sidebarItems = document.querySelectorAll('.sidebar-item');
-    for (var i = 0; i < sidebarItems.length; i++) {
-        sidebarItems[i].classList.remove('active');
-    }
-
-    var panels = document.querySelectorAll('.case-panel');
-    for (var j = 0; j < panels.length; j++) {
-        panels[j].classList.remove('active');
-    }
-
-    var clickedItem = document.querySelector('.sidebar-item[data-case="' + id + '"]');
-    clickedItem.classList.add('active');
-
-    var panelToShow = document.getElementById(id);
-    panelToShow.classList.add('active');
-
-    document.getElementById('content').scrollTop = 0;
-}
-
-
-// ══════════════════════════════════════════
 // CONTENT LADEN UIT content.json
 // ══════════════════════════════════════════
 
 function setText(id, value) {
-    var el = document.getElementById(id);
-    if (el) {
-        el.textContent = value;
-    }
+    var element = document.getElementById(id);
+    if (element && value !== undefined) element.textContent = value;
 }
 
 function setAttr(id, attr, value) {
-    var el = document.getElementById(id);
-    if (el) {
-        el[attr] = value;
-    }
+    var element = document.getElementById(id);
+    if (element && value) element[attr] = value;
 }
 
-fetch('content.json')
+fetch('/content.json')
     .then(function (response) {
+        if (!response.ok) throw new Error('HTTP ' + response.status);
         return response.json();
     })
     .then(function (data) {
 
         // ── About Me ──────────────────────
         setText('about-me-title', data.aboutMe.title);
-
-        var expContainer = document.getElementById('about-me-experience');
-        data.aboutMe.experience.forEach(function (job) {
-            var entry = document.createElement('div');
-            entry.className = 'work-entry';
-            entry.innerHTML =
-                '<div class="work-logo-frame">' +
-                '<img class="work-logo" src="' + job.logo + '" alt="" onerror="this.style.display=\'none\'">' +
-                '</div>' +
-                '<div class="work-entry-content">' +
-                '<div class="work-entry-header">' +
-                '<span class="work-company">' + job.company + '</span>' +
-                '</div>' +
-                '<p class="work-desc">' + job.description + '</p>' +
-                '</div>';
-            expContainer.appendChild(entry);
-        });
-
-        setText('about-me-title', data.aboutMe.title);
         setAttr('about-me-photo', 'src', data.aboutMe.photo);
         setText('about-me-email', data.aboutMe.email);
+
+        var expContainer = document.getElementById('about-me-experience');
+        if (expContainer) {
+            data.aboutMe.experience.forEach(function (job) {
+                var entry = document.createElement('div');
+                entry.className = 'work-entry';
+                entry.innerHTML =
+                    '<div class="work-logo-frame">' +
+                    '<img class="work-logo" src="' + job.logo + '" alt="" onerror="this.style.display=\'none\'">' +
+                    '</div>' +
+                    '<div class="work-entry-content">' +
+                    '<div class="work-entry-header">' +
+                    '<span class="work-company">' + job.company + '</span>' +
+                    '</div>' +
+                    '<p class="work-desc">' + job.description + '</p>' +
+                    '</div>';
+                expContainer.appendChild(entry);
+            });
+        }
 
         setText('about-me-howiwork-p1', data.aboutMe.howIWork[0]);
         setText('about-me-howiwork-p2', data.aboutMe.howIWork[1]);
