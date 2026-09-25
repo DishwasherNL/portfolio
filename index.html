@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
   <meta name="robots" content="noindex, nofollow">
-  <title>Portfolio</title>
+  <title>Arthur Wubbels, UX Designer</title>
 </head>
 
 <body>
@@ -18,84 +18,67 @@
 
 <div class="main">
 
-  <!-- ══════════════════════════════════════════
-       SIDEBAR
-       data-case must match the article id below
-  ══════════════════════════════════════════ -->
   <nav class="sidebar">
     <ul>
       <li>
-        <div class="sidebar-item active" style="margin-bottom: 20px" data-case="about-me" onclick="select('about-me')">
+        <a class="sidebar-item active" style="margin-bottom: 20px" href="index.html">
           <span class="item-title">Arthur Wubbels</span>
           <span class="item-meta">
-        <span>About Me</span>
-        <span></span>
-      </span>
-        </div>
+            <span>About Me</span>
+            <span></span>
+          </span>
+        </a>
       </li>
-
       <li>
-        <div class="sidebar-item" data-case="service-portal" onclick="select('service-portal')">
+        <a class="sidebar-item" href="src/dashboard.html">
           <span class="item-title">Service Portal Dashboard</span>
           <span class="item-meta">
-        <span>Resato Hydrogen</span>
-        <span>2024</span>
-      </span>
-        </div>
+            <span>Resato Hydrogen</span>
+            <span>2024</span>
+          </span>
+        </a>
       </li>
-
       <li>
-        <div class="sidebar-item" data-case="control-hmi" onclick="select('control-hmi')">
+        <a class="sidebar-item" href="src/hmi.html">
           <span class="item-title">Control-HMI</span>
           <span class="item-meta">
-        <span>Resato Hydrogen</span>
-        <span>2026</span>
-      </span>
-        </div>
+            <span>Resato Hydrogen</span>
+            <span>2026</span>
+          </span>
+        </a>
       </li>
-
       <li>
-        <div class="sidebar-item" data-case="cep" onclick="select('cep')">
+        <a class="sidebar-item" href="src/cep.html">
           <span class="item-title">CEP Test Tool</span>
           <span class="item-meta">
-              <span>Resato Hydrogen</span>
-              <span>2025</span>
-            </span>
-        </div>
+            <span>Resato Hydrogen</span>
+            <span>2025</span>
+          </span>
+        </a>
       </li>
-
       <li>
-        <div class="sidebar-item" data-case="gaslicht-zonnepanelen" onclick="select('gaslicht-zonnepanelen')">
+        <a class="sidebar-item" href="src/solarpanels.html">
           <span class="item-title">Zonnepanelen Zonder Gedoe</span>
           <span class="item-meta">
-              <span>Gaslicht.com</span>
-              <span>2021</span>
-            </span>
-        </div>
+            <span>Gaslicht.com</span>
+            <span>2021</span>
+          </span>
+        </a>
       </li>
-
       <li>
-        <div class="sidebar-item" data-case="gaslicht-energiedata" onclick="select('gaslicht-energiedata')">
+        <a class="sidebar-item" href="src/mei.html">
           <span class="item-title">Mijn Energie Inzicht</span>
           <span class="item-meta">
-              <span>Bencompare</span>
-              <span>2023</span>
+            <span>Bencompare</span>
+            <span>2023</span>
           </span>
-        </div>
+        </a>
       </li>
-
     </ul>
   </nav>
 
-  <!-- ══════════════════════════════════════════
-       CONTENT
-       id must match data-case in the sidebar
-  ══════════════════════════════════════════ -->
   <main class="content" id="content">
 
-    <!-- ─────────────────────────────────────
-     CASE: About Me
-───────────────────────────────────── -->
     <article class="case-panel active" id="about-me">
 
       <div class="about-me-header">
@@ -128,297 +111,6 @@
       </div>
 
     </article>
-
-    <!-- ─────────────────────────────────────
-         CASE: Control-Hmi
-    ───────────────────────────────────── -->
-    <article class="case-panel" id="control-hmi">
-
-      <h2 id="control-hmi-title"></h2>
-      <div class="case-meta">
-        <span>Product Design</span>
-        <span>2026</span>
-        <span>Resato Hydrogen Technology</span>
-      </div>
-
-      <div class="case-image">
-        <div class="slide active" id="Hmi1"><img src="img/resato/RES_HMI1.webp"></div>
-        <div class="slide" id="Hmi2"><img src="img/resato/RES_HMI2.webp"></div>
-        <div class="slide" id="Hmi3"><img src="img/resato/RES_HMI3.webp"></div>
-        <div class="slide" id="Hmi4"><img src="img/resato/RES_HMI4.webp"></div>
-        <button class="slide-btn prev" onclick="slideNav(this,-1)">&#8249;</button>
-        <button class="slide-btn next" onclick="slideNav(this,1)">&#8250;</button>
-      </div>
-
-      <div class="case-intro">
-        <p class="section-label">About this project</p>
-        <p id="control-hmi-intro"></p>
-      </div>
-
-      <div class="case-role">
-        <p class="section-label">My role</p>
-        <p id="control-hmi-role"></p>
-      </div>
-
-      <div class="case-refl">
-        <p class="section-label">The challenge</p>
-        <p id="control-hmi-challenge-p1"></p>
-      </div>
-
-      <div class="case-refl">
-        <p class="section-label">Approach</p>
-        <p id="control-hmi-approach-p1"></p>
-        <p id="control-hmi-approach-p2"></p>
-      </div>
-
-      <div class="case-refl">
-        <p class="section-label">Result &amp; reflection</p>
-        <p id="control-hmi-result-p1"></p>
-        <p id="control-hmi-result-p2"></p>
-      </div>
-
-
-    </article>
-
-    <!-- ─────────────────────────────────────
-         CASE: Service Portal
-    ───────────────────────────────────── -->
-    <article class="case-panel" id="service-portal">
-
-      <h2 id="service-portal-title"></h2>
-      <div class="case-meta">
-        <span>Product Design</span>
-        <span>2024</span>
-        <span>Resato Hydrogen Technology</span>
-      </div>
-
-      <div class="case-image">
-        <div class="slide active" id="Dsb1"><img src="img/resato/RES_DSB1.webp"></div>
-        <div class="slide" id="Dsb2"><img src="img/resato/RES_DSB2.webp"></div>
-        <div class="slide" id="Dsb3"><img src="img/resato/RES_DSB3.webp"></div>
-        <div class="slide" id="Dsb4"><img src="img/resato/RES_DSB4.webp"></div>
-        <button class="slide-btn prev" onclick="slideNav(this,-1)">&#8249;</button>
-        <button class="slide-btn next" onclick="slideNav(this,1)">&#8250;</button>
-      </div>
-
-      <div class="case-intro">
-        <p class="section-label">About this project</p>
-        <p id="service-portal-intro"></p>
-      </div>
-
-      <div class="case-role">
-        <p class="section-label">My role</p>
-        <p id="service-portal-role"></p>
-      </div>
-
-      <div class="case-refl">
-        <p class="section-label">The challenge</p>
-        <p id="service-portal-challenge-p1"></p>
-        <p id="service-portal-challenge-p2"></p>
-      </div>
-
-      <div class="case-refl">
-        <p class="section-label">Approach</p>
-        <p id="service-portal-approach-p1"></p>
-        <p id="service-portal-approach-p2"></p>
-        <p id="service-portal-approach-p3"></p>
-      </div>
-
-      <div class="case-refl">
-        <p class="section-label">Result &amp; reflection</p>
-        <p id="service-portal-result-p1"></p>
-        <p id="service-portal-result-p2"></p>
-      </div>
-
-
-    </article>
-
-
-
-    <!-- ─────────────────────────────────────
-         CASE: CEP Tool
-    ───────────────────────────────────── -->
-    <article class="case-panel" id="cep">
-
-      <h2 id="cep-title"></h2>
-      <div class="case-meta">
-        <span>Front-end development</span>
-        <span>2025</span>
-        <span>Resato Hydrogen Technology</span>
-      </div>
-
-      <div class="case-image">
-        <div class="slide active" id="Cep1"><img src="img/resato/RES_CEP1.webp"></div>
-        <div class="slide" id="Cep2"><img src="img/resato/RES_CEP2.webp"></div>
-        <div class="slide" id="Cep3"><img src="img/resato/RES_CEP3.webp"></div>
-        <div class="slide" id="Cep4"><img src="img/resato/RES_CEP4.webp"></div>
-        <div class="slide" id="Cep5"><img src="img/resato/RES_CEP5.webp"></div>
-        <button class="slide-btn prev" onclick="slideNav(this,-1)">&#8249;</button>
-        <button class="slide-btn next" onclick="slideNav(this,1)">&#8250;</button>
-      </div>
-
-      <div class="case-intro">
-        <p class="section-label">About this project</p>
-        <p id="cep-intro"></p>
-      </div>
-
-      <div class="case-role">
-        <p class="section-label">My role</p>
-        <p id="cep-role"></p>
-      </div>
-
-      <div class="case-refl">
-        <p class="section-label">The challenge</p>
-        <p id="cep-challenge"></p>
-      </div>
-
-      <div class="case-refl">
-        <p class="section-label">Approach</p>
-        <p id="cep-approach"></p>
-      </div>
-
-      <div class="case-refl">
-        <p class="section-label">Result &amp; reflection</p>
-        <p id="cep-result-p1"></p>
-        <p id="cep-result-p2"></p>
-        <div class="kpi-grid">
-          <div class="kpi-tile">
-            <span class="kpi-value" id="cep-kpi1-value"></span>
-            <span class="kpi-label" id="cep-kpi1-label"></span>
-          </div>
-          <div class="kpi-tile">
-            <span class="kpi-value" id="cep-kpi2-value"></span>
-            <span class="kpi-label" id="cep-kpi2-label"></span>
-          </div>
-          <div class="kpi-tile">
-            <span class="kpi-value" id="cep-kpi3-value"></span>
-            <span class="kpi-label" id="cep-kpi3-label"></span>
-          </div>
-        </div>
-      </div>
-
-
-    </article>
-
-    <!-- ─────────────────────────────────────
-         CASE: gaslicht.com Solar Panel Configurator
-    ───────────────────────────────────── -->
-    <article class="case-panel" id="gaslicht-zonnepanelen" lang="en">
-
-      <h2 id="gaslicht-solar-title"></h2>
-      <div class="case-meta">
-        <span>B2C Web</span>
-        <span>Bencom Group</span>
-      </div>
-
-      <div class="case-image">
-
-        <div class="slide active" id="Solar1"><img src="img/gaslicht/solar_panels/GL_Solar1.webp"></div>
-        <div class="slide" id="Solar2"><img src="img/gaslicht/solar_panels/GL_Solar2.webp"></div>
-        <div class="slide" id="Solar3"><img src="img/gaslicht/solar_panels/GL_Solar3.webp"></div>
-        <div class="slide" id="Solar4"><img src="img/gaslicht/solar_panels/GL_Solar4.webp"></div>
-        <div class="slide" id="Solar5"><img src="img/gaslicht/solar_panels/GL_Solar5.webp"></div>
-        <button class="slide-btn prev" onclick="slideNav(this,-1)">&#8249;</button>
-        <button class="slide-btn next" onclick="slideNav(this,1)">&#8250;</button>
-      </div>
-
-      <div class="case-intro">
-        <p class="section-label">About this project</p>
-        <p id="gaslicht-solar-intro"></p>
-      </div>
-
-      <div class="case-role">
-        <p class="section-label">My role</p>
-        <p id="gaslicht-solar-role"></p>
-      </div>
-
-      <div class="case-refl">
-        <p class="section-label">The challenge</p>
-        <p id="gaslicht-solar-challenge"></p>
-      </div>
-
-      <div class="case-refl">
-        <p class="section-label">Approach</p>
-        <p id="gaslicht-solar-approach"></p>
-      </div>
-
-      <div class="case-refl">
-        <p class="section-label">Result &amp; reflection</p>
-        <p id="gaslicht-solar-result">
-          <span id="gaslicht-solar-result-text"></span>
-          <a id="gaslicht-solar-result-link" href="#" target="_blank" rel="noopener"></a>
-        </p>
-          <div class="kpi-grid">
-            <div class="kpi-tile">
-              <img class="kpi-icon" id="gaslicht-solar-kpi1-icon" src="" alt="">
-              <span class="kpi-value" id="gaslicht-solar-kpi1-value"></span>
-              <span class="kpi-label" id="gaslicht-solar-kpi1-label"></span>
-            </div>
-            <div class="kpi-tile">
-              <span class="kpi-value" id="gaslicht-solar-kpi2-value"></span>
-              <span class="kpi-label" id="gaslicht-solar-kpi2-label"></span>
-            </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- ─────────────────────────────────────
-         CASE: gaslicht.com Energy Data Add-on
-    ───────────────────────────────────── -->
-    <article class="case-panel" id="gaslicht-energiedata" lang="en">
-
-      <h2 id="gaslicht-energie-title"></h2>
-      <div class="case-meta">
-        <span>B2C app</span>
-        <span>Bencom Group</span>
-      </div>
-
-      <div class="case-image">
-        <div class="slide active" id="Pame1"><img src="img/gaslicht/PAME/GL_PAME1.webp"></div>
-        <div class="slide active" id="Pame2"><img src="img/gaslicht/PAME/GL_PAME2.webp"></div>
-        <div class="slide active" id="Pame3"><img src="img/gaslicht/PAME/GL_PAME3.webp"></div>
-        <button class="slide-btn prev" onclick="slideNav(this,-1)">&#8249;</button>
-        <button class="slide-btn next" onclick="slideNav(this,1)">&#8250;</button>
-      </div>
-
-      <div class="case-intro">
-        <p class="section-label">About this project</p>
-        <p id="gaslicht-energie-intro"></p>
-      </div>
-
-      <div class="case-role">
-        <p class="section-label">My role</p>
-        <p id="gaslicht-energie-role"></p>
-      </div>
-
-      <div class="case-refl">
-        <p class="section-label">The challenge</p>
-        <p id="gaslicht-energie-challenge"></p>
-      </div>
-
-      <div class="case-refl">
-        <p class="section-label">Approach</p>
-        <p id="gaslicht-energie-approach"></p>
-      </div>
-
-      <div class="case-refl">
-        <p class="section-label">Result &amp; reflection</p>
-        <p id="gaslicht-energie-result"></p>
-        <div class="kpi-grid">
-          <div class="kpi-tile">
-            <span class="kpi-value" id="gaslicht-energie-kpi1-value"></span>
-            <span class="kpi-label" id="gaslicht-energie-kpi1-label"></span>
-          </div>
-          <div class="kpi-tile">
-            <span class="kpi-value" id="gaslicht-energie-kpi2-value"></span>
-            <span class="kpi-label" id="gaslicht-energie-kpi2-label"></span>
-          </div>
-        </div>
-      </div>
-
-
-    </article>
-
 
   </main>
 </div>
