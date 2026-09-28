@@ -43,7 +43,10 @@ function setAttr(id, attr, value) {
     if (element && value) element[attr] = value;
 }
 
-fetch('content.json')
+// Resolve content.json relative to this script, so it works from any page/folder
+var contentUrl = new URL('content.json', document.currentScript.src).href;
+
+fetch(contentUrl)
     .then(function (response) {
         if (!response.ok) throw new Error('HTTP ' + response.status);
         return response.json();
