@@ -43,7 +43,7 @@ function setAttr(id, attr, value) {
     if (element && value) element[attr] = value;
 }
 
-fetch('/content.json')
+fetch('content.json')
     .then(function (response) {
         if (!response.ok) throw new Error('HTTP ' + response.status);
         return response.json();
