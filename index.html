@@ -11,103 +11,88 @@
 <body>
 <script src="script.js" defer></script>
 
-<header>
-  <h1>Use Cases</h1>
-  <span class="name">Arthur Wubbels</span>
-</header>
-
 <div class="main">
-
-  <nav class="sidebar">
-    <ul>
-      <li>
-        <a class="sidebar-item active" style="margin-bottom: 20px" href="index.html">
-          <span class="item-title">Arthur Wubbels</span>
-          <span class="item-meta">
-            <span>About Me</span>
-            <span></span>
-          </span>
-        </a>
-      </li>
-      <li>
-        <a class="sidebar-item" href="src/dashboard.html">
-          <span class="item-title">Service Portal Dashboard</span>
-          <span class="item-meta">
-            <span>Resato Hydrogen</span>
-            <span>2024</span>
-          </span>
-        </a>
-      </li>
-      <li>
-        <a class="sidebar-item" href="src/hmi.html">
-          <span class="item-title">Control-HMI</span>
-          <span class="item-meta">
-            <span>Resato Hydrogen</span>
-            <span>2026</span>
-          </span>
-        </a>
-      </li>
-      <li>
-        <a class="sidebar-item" href="src/cep.html">
-          <span class="item-title">CEP Test Tool</span>
-          <span class="item-meta">
-            <span>Resato Hydrogen</span>
-            <span>2025</span>
-          </span>
-        </a>
-      </li>
-      <li>
-        <a class="sidebar-item" href="src/solarpanels.html">
-          <span class="item-title">Zonnepanelen Zonder Gedoe</span>
-          <span class="item-meta">
-            <span>Gaslicht.com</span>
-            <span>2021</span>
-          </span>
-        </a>
-      </li>
-      <li>
-        <a class="sidebar-item" href="src/mei.html">
-          <span class="item-title">Mijn Energie Inzicht</span>
-          <span class="item-meta">
-            <span>Bencompare</span>
-            <span>2023</span>
-          </span>
-        </a>
-      </li>
-    </ul>
-  </nav>
 
   <main class="content" id="content">
 
     <article class="case-panel active" id="about-me">
 
-      <div class="about-me-header">
-        <div class="about-me-photo">
-          <img id="about-me-photo" src="img/arthur.png" alt="Arthur Wubbels">
-        </div>
-        <div class="about-me-header-text">
-          <h2 id="about-me-title"></h2>
-          <div class="case-meta">
-            <span>UX Designer | Product Designer</span>
-            <span id="about-me-email"></span>
-          </div>
-        </div>
+      <div class="case-role">
+        <p class="section-label">Arthur Wubbels</p>
+        <p id="about-me-personal-p1"></p>
       </div>
 
       <div class="case-intro">
-        <p class="section-label">Work Experience</p>
-        <div id="about-me-experience" class="work-history"></div>
+        <p class="section-label">Work</p>
+        <div class="work-grid">
+
+          <a class="kpi-tile work-card" href="src/dashboard.html">
+            <svg class="work-card-icon" width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
+              <path d="M0 0H14V14H13V1.705L1.354 13.354L0.646 12.646L12.292 1H0Z"/>
+            </svg>
+            <span class="item-title">Service Dashboard</span>
+            <span class="item-meta">
+              <span>Resato Hydrogen</span>
+              <span>2024</span>
+            </span>
+          </a>
+
+          <a class="kpi-tile work-card" href="src/hmi.html">
+            <svg class="work-card-icon" width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
+              <path d="M0 0H14V14H13V1.705L1.354 13.354L0.646 12.646L12.292 1H0Z"/>
+            </svg>
+            <span class="item-title">Control-HMI</span>
+            <span class="item-meta">
+              <span>Resato Hydrogen</span>
+              <span>2026</span>
+            </span>
+          </a>
+
+          <a class="kpi-tile work-card" href="src/cep.html">
+            <svg class="work-card-icon" width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
+              <path d="M0 0H14V14H13V1.705L1.354 13.354L0.646 12.646L12.292 1H0Z"/>
+            </svg>
+            <span class="item-title">CEP Test Tool</span>
+            <span class="item-meta">
+              <span>Resato Hydrogen</span>
+              <span>2025</span>
+            </span>
+          </a>
+
+          <a class="kpi-tile work-card" href="src/solarpanels.html">
+            <svg class="work-card-icon" width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
+              <path d="M0 0H14V14H13V1.705L1.354 13.354L0.646 12.646L12.292 1H0Z"/>
+            </svg>
+            <span class="item-title">Solar Panels config.</span>
+            <span class="item-meta">
+              <span>Gaslicht.com</span>
+              <span>2021</span>
+            </span>
+          </a>
+
+          <a class="kpi-tile work-card" href="src/mei.html">
+            <svg class="work-card-icon" width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
+              <path d="M0 0H14V14H13V1.705L1.354 13.354L0.646 12.646L12.292 1H0Z"/>
+            </svg>
+            <span class="item-title">Mijn Energie Inzicht</span>
+            <span class="item-meta">
+              <span>Bencompare</span>
+              <span>2023</span>
+            </span>
+          </a>
+
+        </div>
       </div>
 
       <div class="case-role">
-        <p class="section-label">How I work</p>
+        <p class="section-label">Now</p>
         <p id="about-me-howiwork-p1"></p>
         <p id="about-me-howiwork-p2"></p>
       </div>
 
       <div class="case-role">
-        <p class="section-label">Personal</p>
-        <p id="about-me-personal-p1"></p>
+        <p class="section-label">Connect</p>
+        <p id="">Reach out at <a href="mailto:arthurwubbels@gmail.com">arthurwubbels@gmail.com</a></p>
       </div>
 
     </article>
