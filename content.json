@@ -61,20 +61,20 @@
     },
     "cep": {
         "title": "CEP Test Tool",
-        "intro": "An internal web platform that gives commissioning engineers a single environment to configure, validate, and document hydrogen station setups - deployable to both staging and production via Docker. Currently entering beta field testing.",
-        "role": "Front-end developer. Responsible for the full UI, environment-aware deployment setup, and API integration. Collaborated with SBEC (backend) and EBRO (test automation).",
-        "challenge": "Engineers spent 6–8 hours of direct, uninterrupted time per commissioning report using spreadsheets and manual checklists to configure and validate hydrogen stations on-site - an average of 7 hours, or roughly €700 in labor cost per report at a fully loaded rate of €100/hour.",
-        "approach": "The goal was a unified commissioning platform that works across staging and production environments and supports engineers directly in the field. I documented the functionality in a functional specification, wrote a test plan to validate the tool methodically, and built the UI in vanilla HTML/CSS/JS with Docker deployment for both environments. The first test round uncovered a technical issue, which was diagnosed and fixed, then successfully re-verified in a second round with only minor advice points.",
+        "intro": "An internal web platform that lets commissioning engineers validate fueling test data and generate the CEP report needed to approve a new hydrogen refueling station. Now in beta, used on new stations with the old process as fallback.",
+        "role": "Front-end developer and UX designer. Responsible for the full UI and user flow, environment-aware Docker deployment, API integration and user testing. Collaborated with SBEC (backend) and EBRO (software engineer, report validation).",
+        "challenge": "Before a hydrogen station goes into service, its fueling tests must meet the requirements of the Clean Energy Partnership (CEP), documented in a CEP report. This took two engineers, one on-site and one software engineer at the office. Checking the data against the criteria and building the report was manual work in slow software, taking 6 to 8 hours per report. That is roughly €700 in labor cost, with two engineers at €50/hour each.",
+        "approach": "Together with SBEC I wrote a functional specification, with requirements split into MVP and next iteration. I designed the user flow and built the UI in vanilla HTML, CSS and JavaScript, with Docker deployment for staging and production. SBEC built the backend that retrieves the data, validates it and generates the plots and report. With the project team we set up a test plan, and I ran two usability tests as an observer: without guiding the tester, I logged every hesitation with a severity and timed each report. The first round passed for H70 but failed for H35, so I rejected it on function even though the tool was easy to use. After the fix, the second round passed. Findings that came back in both rounds became the first improvements.",
         "result": [
-            "Two independent report-generation tests (7 min 20 sec and 9 min 40 sec, averaging 8.5 minutes) show a 98% reduction in direct time per report, down from 7 hours to 8.5 minutes. That's roughly €700 to €7 in labor cost. The tool is now moving into beta field testing.",
-            "The first test round surfaced a technical issue that was diagnosed and fixed before the second round succeeded with only minor advice points. Development was challenging, both SBEC and I had to learn a lot along the way. A next step is measuring indirect time (waiting on others), which ran up to 40 hours per report in the old process and may hold the largest remaining savings potential."
+            "Generating a report took 7 min 20 sec and 9 min 40 sec in the two tests, compared to an average of 7 hours before. That is a 98% reduction in direct time, and roughly €700 to €7 in labor cost per report, as the office engineer is hardly needed anymore. The tool is now in beta on new stations.",
+            "The failed first round showed that a tool that feels good can still fail at its core. The tests ran at the office with existing data, so the beta has to confirm the savings in the field. Development was challenging, both SBEC and I had to learn a lot along the way. A next step is measuring indirect time, such as waiting on others, which ran up to 40 hours per report in the old process."
         ],
         "kpi1value": "-98%",
         "kpi1label": "Direct time per report (7h → 8.5 min)",
         "kpi2value": "€700 → €7",
         "kpi2label": "Labor cost per report",
         "kpi3value": "Beta",
-        "kpi3label": "Now field-testing with engineers"
+        "kpi3label": "Used on new stations, old process as fallback"
     },
     "gaslichtSolar": {
         "title": "Solar Panel Configurator - Gaslicht.com",
