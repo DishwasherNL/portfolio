@@ -62,16 +62,16 @@
     "cep": {
         "title": "CEP Test Tool",
         "intro": "An internal web platform that lets commissioning engineers validate fueling test data and generate the CEP report needed to approve a new hydrogen refueling station. Now in beta, used on new stations with the old process as fallback.",
-        "role": "Front-end developer and UX designer. Responsible for the full UI and user flow, environment-aware Docker deployment, API integration and user testing. Collaborated with SBEC (backend) and EBRO (software engineer, report validation).",
-        "challenge": "Before a hydrogen station goes into service, its fueling tests must meet the requirements of the Clean Energy Partnership (CEP), documented in a CEP report. This took two engineers, one on-site and one software engineer at the office. Checking the data against the criteria and building the report was manual work in slow software, taking 6 to 8 hours per report. That is roughly €700 in labor cost, with two engineers at €50/hour each.",
+        "role": "UX/UI designer and front-end developer. Designed the user flow and interface, built it in HTML, CSS and JavaScript, managed the Git workflow, set up the environment-aware Docker deployment and API integration, and ran the user tests. Collaborated with SBEC (backend) and EBRO (software engineer, report validation).",
+        "challenge": "Before a hydrogen station goes into service, its fueling tests must meet the requirements of the Clean Energy Partnership (CEP), documented in a CEP report. This took two engineers, one on-site and one software engineer at the office. Checking the data against the criteria and building the report was manual work in slow software. Interviews with the software engineers who built these reports showed 6 to 8 hours of direct time per report, plus up to 40 hours of waiting on others. That is roughly €700 in direct labor cost per report, with two engineers at €50/hour each.",
         "approach": "Together with SBEC I wrote a functional specification, with requirements split into MVP and next iteration. I designed the user flow and built the UI in vanilla HTML, CSS and JavaScript, with Docker deployment for staging and production. SBEC built the backend that retrieves the data, validates it and generates the plots and report. With the project team we set up a test plan, and I ran two usability tests as an observer: without guiding the tester, I logged every hesitation with a severity and timed each report. The first round passed for H70 but failed for H35, so I rejected it on function even though the tool was easy to use. After the fix, the second round passed. Findings that came back in both rounds became the first improvements.",
         "result": [
-            "Generating a report took 7 min 20 sec and 9 min 40 sec in the two tests, compared to an average of 7 hours before. That is a 98% reduction in direct time, and roughly €700 to €7 in labor cost per report, as the office engineer is hardly needed anymore. The tool is now in beta on new stations.",
-            "The failed first round showed that a tool that feels good can still fail at its core. The tests ran at the office with existing data, so the beta has to confirm the savings in the field. Development was challenging, both SBEC and I had to learn a lot along the way. A next step is measuring indirect time, such as waiting on others, which ran up to 40 hours per report in the old process."
+            "Generating a report took 7 min 20 sec and 9 min 40 sec in the two tests, compared to an average of 7 hours before. That is a 98% reduction in direct time, and roughly €700 to €7 in labor cost per report, as the office engineer is hardly needed anymore.",
+            "The tool is now in beta: new stations are tested with it, with the old process as fallback. Engineers are enthusiastic, as it saves them real time. For me it was a big learning project, where I really learned JavaScript, Git and how to work with a backend developer. Next steps are improving the UX and measuring indirect time, which averaged around 27 hours per report in the old process."
         ],
         "kpi1value": "-98%",
-        "kpi1label": "Direct time per report (7h → 8.5 min)",
-        "kpi2value": "€700 → €7",
+        "kpi1label": "Direct time per report (7h > 8.5 min)",
+        "kpi2value": "€700 > €7",
         "kpi2label": "Labor cost per report",
         "kpi3value": "Beta",
         "kpi3label": "Used on new stations, old process as fallback"
